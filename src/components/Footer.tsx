@@ -19,16 +19,28 @@ export function Footer() {
             <span>© 2025 Zoopol. All rights reserved.</span>
             <div className="flex items-center gap-4 md:gap-6">
               <a
-                href="#"
+                href="#privacy-policy"
                 className="hover:text-white transition-colors"
               >
                 Privacy Policy
               </a>
               <a
-                href="#"
+                href="#terms"
                 className="hover:text-white transition-colors"
               >
                 Terms & Conditions
+              </a>
+              <a
+                href="#refund-policy"
+                className="hover:text-white transition-colors"
+              >
+                Refund & Cancellation
+              </a>
+              <a
+                href="#contact"
+                className="hover:text-white transition-colors"
+              >
+                Contact Us
               </a>
             </div>
           </div>

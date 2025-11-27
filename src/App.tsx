@@ -2,6 +2,10 @@ import { Features } from "./components/Features";
 import { HowItWorks } from "./components/HowItWorks";
 import { FAQ } from "./components/FAQ";
 import { FinalCTA } from "./components/FinalCTA";
+import { PrivacyPolicy } from "./components/PrivacyPolicy";
+import { Terms } from "./components/Terms";
+import { RefundPolicy } from "./components/RefundPolicy";
+import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { Button } from "./components/ui/button";
 import { Star, Apple } from "lucide-react";
@@ -217,6 +221,18 @@ export default function App() {
 
       {/* Final CTA Section */}
       <FinalCTA />
+
+      {/* Privacy Policy Section */}
+      <PrivacyPolicy />
+
+      {/* Terms & Conditions Section */}
+      <Terms />
+
+      {/* Refund & Cancellation Policy Section */}
+      <RefundPolicy />
+
+      {/* Contact Section */}
+      <Contact />
 
       {/* Footer Section */}
       <Footer />
