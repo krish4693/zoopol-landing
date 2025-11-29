@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import logoImage from "figma:asset/517df0d5670810621a7e0624844181007d0f402d.png";
 
 export function Footer() {
@@ -7,41 +8,43 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6">
           {/* Logo */}
           <div>
-            <img
-              src={logoImage}
-              alt="Zoopol"
-              className="h-6 md:h-7"
-            />
+            <Link to="/">
+              <img
+                src={logoImage}
+                alt="Zoopol"
+                className="h-6 md:h-7"
+              />
+            </Link>
           </div>
 
           {/* Copyright and Links */}
           <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 text-gray-400 text-sm md:text-base text-center">
             <span>© 2025 Zoopol. All rights reserved.</span>
             <div className="flex items-center gap-4 md:gap-6">
-              <a
-                href="#privacy-policy"
+              <Link
+                to="/privacy-policy"
                 className="hover:text-white transition-colors"
               >
                 Privacy Policy
-              </a>
-              <a
-                href="#terms"
+              </Link>
+              <Link
+                to="/terms"
                 className="hover:text-white transition-colors"
               >
                 Terms & Conditions
-              </a>
-              <a
-                href="#refund-policy"
+              </Link>
+              <Link
+                to="/refund-policy"
                 className="hover:text-white transition-colors"
               >
                 Refund & Cancellation
-              </a>
-              <a
-                href="#contact"
+              </Link>
+              <Link
+                to="/contact"
                 className="hover:text-white transition-colors"
               >
                 Contact Us
-              </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -160,7 +160,12 @@ export function RefundPolicy() {
           </div>
 
           <div className="mt-8 text-center">
-            <a href="#home" className="text-[#156BFC] hover:underline">Back to top</a>
+            <button 
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="text-[#156BFC] hover:underline cursor-pointer bg-transparent border-none"
+            >
+              Back to top
+            </button>
           </div>
         </div>
       </div>
