@@ -6,7 +6,7 @@ export function Contact() {
       <div className="container mx-auto max-w-5xl">
         <div className="bg-white rounded-3xl border border-gray-200 shadow-sm p-6 md:p-10">
           <div className="text-center mb-6 md:mb-8">
-            <h2 className="text-gray-900 text-3xl md:text-4xl font-semibold tracking-tight mb-2">Contact Us — Zoopol</h2>
+            <h1 className="text-gray-900 text-3xl md:text-4xl font-semibold tracking-tight mb-2">Contact Us — Zoopol</h1>
             <p className="text-gray-600 text-sm md:text-base">We’re here to help with any questions.</p>
           </div>
 

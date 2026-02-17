@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { Features } from "../components/Features";
 import { HowItWorks } from "../components/HowItWorks";
 import { FAQ } from "../components/FAQ";
@@ -10,6 +11,10 @@ import appStoreButtons from 'figma:asset/ba3ea06de21fd32944af108b203e16e4e384730
 export default function HomePage() {
   return (
     <>
+      <Helmet>
+        <title>Zoopol — Hire in Minutes. Work in Minutes.</title>
+        <meta name="description" content="Zoopol connects employers and workers for household tasks, one-day jobs, and quick help — fast, simple, and fully transparent." />
+      </Helmet>
       {/* Hero Section */}
       <section id="home" className="min-h-screen py-8 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         <div className="container mx-auto">

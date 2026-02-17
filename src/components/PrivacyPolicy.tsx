@@ -11,7 +11,7 @@ export function PrivacyPolicy() {
           <div className="mb-6 md:mb-8 text-center">
             <div className="flex items-center justify-center gap-3 mb-2">
               <Shield className="w-6 h-6 text-[#156BFC]" aria-hidden="true" />
-              <h2 className="text-gray-900 text-3xl md:text-4xl font-semibold tracking-tight">Privacy Policy — Zoopol</h2>
+              <h1 className="text-gray-900 text-3xl md:text-4xl font-semibold tracking-tight">Privacy Policy — Zoopol</h1>
             </div>
             <p className="text-gray-600 text-sm md:text-base">Last Updated: November 27, 2025</p>
           </div>
