@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://zoopol.com/</loc>
+    <lastmod>2026-02-15</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://zoopol.com/privacy-policy</loc>
+    <lastmod>2025-11-27</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://zoopol.com/terms</loc>
+    <lastmod>2025-11-27</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://zoopol.com/refund-policy</loc>
+    <lastmod>2025-11-27</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://zoopol.com/contact</loc>
+    <lastmod>2026-02-15</lastmod>
+    <priority>0.6</priority>
+  </url>
+</urlset>
