@@ -2167,3 +2167,67 @@
     height: 0;
   }
 }
+
+/* Feature card: at md+ (desktop) default = big icon only; hover (.revealed) = content only */
+@media (min-width: 768px) {
+  .group .feature-card-big-icon {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+  }
+  .group .feature-card-big-icon .feature-card-big-icon-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .group .feature-card-big-icon svg {
+    width: 5rem;
+    height: 5rem;
+  }
+  .group .feature-card-content {
+    opacity: 0;
+  }
+  .group.revealed .feature-card-big-icon {
+    opacity: 0;
+  }
+  .group.revealed .feature-card-big-icon-inner {
+    transform: scale(0.95);
+  }
+  .group.revealed .feature-card-content {
+    opacity: 1;
+  }
+}
+
+/* Touch devices: same two-state (big icon default, tap to reveal) at any viewport so responsive shows tap behaviour */
+.features-touch .group .feature-card-big-icon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+}
+.features-touch .group .feature-card-big-icon .feature-card-big-icon-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.features-touch .group .feature-card-big-icon svg {
+  width: 5rem;
+  height: 5rem;
+}
+.features-touch .group .feature-card-content {
+  opacity: 0;
+}
+.features-touch .group.revealed .feature-card-big-icon {
+  opacity: 0;
+}
+.features-touch .group.revealed .feature-card-big-icon-inner {
+  transform: scale(0.95);
+}
+.features-touch .group.revealed .feature-card-content {
+  opacity: 1;
+}
