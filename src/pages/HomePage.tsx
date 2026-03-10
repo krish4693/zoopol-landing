@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { motion, useReducedMotion } from "motion/react";
 import { Features } from "../components/Features";
 import { HowItWorks } from "../components/HowItWorks";
 import { FAQ } from "../components/FAQ";
@@ -120,7 +121,13 @@ function WorkerCard({
   );
 }
 
+const heroTransition = { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const };
+
 export default function HomePage() {
+  const reduceMotion = useReducedMotion();
+  const heroInitial = reduceMotion ? false : { opacity: 0, y: 12 };
+  const heroAnimate = reduceMotion ? undefined : { opacity: 1, y: 0 };
+
   return (
     <>
       <Helmet>
@@ -137,9 +144,20 @@ export default function HomePage() {
       >
         <div className="w-full min-h-[85vh] flex flex-col p-8 lg:p-12 relative overflow-hidden">
             {/* SVG decorations - behind right column */}
-            <svg
-              className="absolute top-1/2 right-0 w-1/2 h-full pointer-events-none opacity-20"
+            <motion.svg
+              className="absolute top-1/2 right-0 w-1/2 h-full pointer-events-none"
               style={{ transform: "translateY(-30%)" }}
+              initial={{ opacity: 0.2 }}
+              animate={
+                reduceMotion
+                  ? { opacity: 0.2 }
+                  : { opacity: [0.2, 0.28, 0.2] }
+              }
+              transition={
+                reduceMotion
+                  ? { duration: 0 }
+                  : { duration: 4, repeat: Infinity, ease: "easeInOut" }
+              }
             >
               <path
                 d="M 100 400 Q 300 350, 500 400"
@@ -159,7 +177,7 @@ export default function HomePage() {
                 strokeWidth="3"
                 fill="none"
               />
-            </svg>
+            </motion.svg>
             <div className="absolute top-1/3 right-1/4 hidden lg:block opacity-30">
               <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
                 <line
@@ -212,44 +230,79 @@ export default function HomePage() {
             <div className="flex-1 flex flex-col lg:grid lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] gap-8 lg:gap-12 items-center relative z-10 py-6 lg:py-8">
               {/* Left column - text content */}
               <div className="flex flex-col items-center lg:items-start text-center lg:text-left w-full max-w-2xl lg:max-w-none">
-                <div className="inline-flex rounded-full p-[2px] bg-gradient-to-r from-[#156BFC] via-[#4A90FF] to-[#156BFC] mb-6 md:mb-8">
+                <motion.div
+                  className="inline-flex rounded-full p-[2px] bg-gradient-to-r from-[#156BFC] via-[#4A90FF] to-[#156BFC] mb-6 md:mb-8"
+                  initial={heroInitial}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={reduceMotion ? { duration: 0 } : { ...heroTransition, delay: 0.1 }}
+                >
                   <div className="flex items-center gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-full bg-gray-900 text-white/70 text-xs md:text-sm">
                     <span className="hidden sm:inline">
                       +10 thousands of workers ready to collaborate
                     </span>
                     <span className="sm:hidden">+10k workers ready</span>
                   </div>
-                </div>
+                </motion.div>
 
-                <div className="mb-6 md:mb-8">
+                <motion.div
+                  className="mb-6 md:mb-8"
+                  initial={heroInitial}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={reduceMotion ? { duration: 0 } : { ...heroTransition, delay: 0.2 }}
+                >
                   <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white uppercase leading-tight font-bold">
                     HIRE IN MINUTES.
                     <br />
-                    <span className="text-[#156BFC]">WORK</span> IN MINUTES.
+                    <motion.span
+                      className="text-[#156BFC] inline-block"
+                      initial={reduceMotion ? false : { opacity: 0, scale: 0.98 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={reduceMotion ? { duration: 0 } : { ...heroTransition, delay: 0.1 }}
+                    >
+                      WORK
+                    </motion.span>{" "}
+                    IN MINUTES.
                   </h1>
-                </div>
+                </motion.div>
 
-                <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-3xl mb-8 md:mb-10 px-4 lg:px-0">
+                <motion.p
+                  className="text-base sm:text-lg md:text-xl text-white/90 max-w-3xl mb-8 md:mb-10 px-4 lg:px-0"
+                  initial={heroInitial}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={reduceMotion ? { duration: 0 } : { ...heroTransition, delay: 0.35 }}
+                >
                   Zoopol connects employers and workers for household tasks,
                   one-day jobs, and quick help — fast, simple, and fully
                   transparent.
-                </p>
+                </motion.p>
 
                 {/* Feature row with bullets */}
                 <div className="flex flex-wrap gap-4 justify-center lg:justify-start mb-8 md:mb-10">
-                  {FEATURE_ITEMS.map((item) => (
-                    <div
+                  {FEATURE_ITEMS.map((item, i) => (
+                    <motion.div
                       key={item}
                       className="flex items-center gap-2 text-white/90 text-sm"
+                      initial={heroInitial}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={
+                        reduceMotion
+                          ? { duration: 0 }
+                          : { ...heroTransition, delay: 0.45 + i * 0.05 }
+                      }
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-[#156BFC] shrink-0" />
                       <span>{item}</span>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
 
                 {/* CTAs */}
-                <div className="flex flex-col sm:flex-row items-center gap-3 md:gap-4 w-full sm:w-auto">
+                <motion.div
+                  className="flex flex-col sm:flex-row items-center gap-3 md:gap-4 w-full sm:w-auto"
+                  initial={heroInitial}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={reduceMotion ? { duration: 0 } : { ...heroTransition, delay: 0.6 }}
+                >
                   <a href="#" className="hover:opacity-80 transition-opacity">
                     <img
                       src={appStoreButtons}
@@ -257,22 +310,32 @@ export default function HomePage() {
                       className="h-12 md:h-14"
                     />
                   </a>
-                </div>
+                </motion.div>
 
                 {/* Callout bubbles - optional feature highlights */}
                 <div className="flex flex-wrap gap-4 mt-8 justify-center lg:justify-start">
-                  <div className="flex items-center gap-2 bg-white/10 rounded-xl px-4 py-2 backdrop-blur-sm shadow-lg">
+                  <motion.div
+                    className="flex items-center gap-2 bg-white/10 rounded-xl px-4 py-2 backdrop-blur-sm shadow-lg"
+                    initial={heroInitial}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={reduceMotion ? { duration: 0 } : { ...heroTransition, delay: 0.7 }}
+                  >
                     <Zap className="w-4 h-4 text-white shrink-0" />
                     <span className="text-white text-xs md:text-sm">
                       Quick booking
                     </span>
-                  </div>
-                  <div className="flex items-center gap-2 bg-white/10 rounded-xl px-4 py-2 backdrop-blur-sm shadow-lg">
+                  </motion.div>
+                  <motion.div
+                    className="flex items-center gap-2 bg-white/10 rounded-xl px-4 py-2 backdrop-blur-sm shadow-lg"
+                    initial={heroInitial}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={reduceMotion ? { duration: 0 } : { ...heroTransition, delay: 0.8 }}
+                  >
                     <Check className="w-4 h-4 text-white shrink-0" />
                     <span className="text-white text-xs md:text-sm">
                       Transparent pricing
                     </span>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
 
