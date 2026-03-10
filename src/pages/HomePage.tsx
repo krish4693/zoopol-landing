@@ -147,16 +147,22 @@ export default function HomePage() {
             <motion.svg
               className="absolute top-1/2 right-0 w-1/2 h-full pointer-events-none"
               style={{ transform: "translateY(-30%)" }}
-              initial={{ opacity: 0.2 }}
+              initial={{ opacity: 0.2, y: 0 }}
               animate={
                 reduceMotion
-                  ? { opacity: 0.2 }
-                  : { opacity: [0.2, 0.28, 0.2] }
+                  ? { opacity: 0.2, y: 0 }
+                  : {
+                      opacity: [0.2, 0.28, 0.2],
+                      y: [0, -8, 0],
+                    }
               }
               transition={
                 reduceMotion
                   ? { duration: 0 }
-                  : { duration: 4, repeat: Infinity, ease: "easeInOut" }
+                  : {
+                      opacity: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+                      y: { duration: 2.5, repeat: Infinity, ease: "easeInOut" },
+                    }
               }
             >
               <path
@@ -178,7 +184,15 @@ export default function HomePage() {
                 fill="none"
               />
             </motion.svg>
-            <div className="absolute top-1/3 right-1/4 hidden lg:block opacity-30">
+            <motion.div
+              className="absolute top-1/3 right-1/4 hidden lg:block opacity-30"
+              animate={reduceMotion ? {} : { y: [0, -6, 0] }}
+              transition={
+                reduceMotion
+                  ? { duration: 0 }
+                  : { y: { duration: 2.8, repeat: Infinity, ease: "easeInOut" } }
+              }
+            >
               <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
                 <line
                   x1="10"
@@ -199,8 +213,16 @@ export default function HomePage() {
                   strokeLinecap="round"
                 />
               </svg>
-            </div>
-            <div className="absolute bottom-1/4 right-1/3 hidden lg:block opacity-30">
+            </motion.div>
+            <motion.div
+              className="absolute bottom-1/4 right-1/3 hidden lg:block opacity-30"
+              animate={reduceMotion ? {} : { y: [0, -6, 0] }}
+              transition={
+                reduceMotion
+                  ? { duration: 0 }
+                  : { y: { duration: 3.2, repeat: Infinity, ease: "easeInOut" } }
+              }
+            >
               <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
                 <line
                   x1="5"
@@ -221,7 +243,7 @@ export default function HomePage() {
                   strokeLinecap="round"
                 />
               </svg>
-            </div>
+            </motion.div>
 
             {/* Header */}
             <Header />
