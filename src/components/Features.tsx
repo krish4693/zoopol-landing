@@ -63,7 +63,7 @@ function FeatureCard({ feature, isTouchDevice }: { feature: Feature; isTouchDevi
   return (
     <div className="min-h-[280px] md:min-h-[300px]">
       <div
-        className={`group relative min-h-[280px] md:min-h-[300px] overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm transition-shadow duration-300 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#156BFC] focus-visible:ring-offset-2 ${revealed ? 'revealed' : ''}`}
+        className={`group relative min-h-[280px] md:min-h-[300px] overflow-hidden rounded-3xl border border-white/10 bg-[#0A0F1C] shadow-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,229,255,0.1)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00E5FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] ${revealed ? 'revealed' : ''}`}
         tabIndex={0}
         role="button"
         aria-expanded={revealed}
@@ -81,11 +81,11 @@ function FeatureCard({ feature, isTouchDevice }: { feature: Feature; isTouchDevi
       >
         {/* Big Icon Layer: desktop default; fades out + scale when revealed. */}
         <div
-          className="feature-card-big-icon absolute inset-0 flex items-center justify-center bg-white opacity-0 transition-opacity duration-300 ease-in-out md:opacity-100 md:group-[.revealed]:opacity-0"
+          className="feature-card-big-icon absolute inset-0 flex items-center justify-center bg-[#0A0F1C] opacity-0 transition-opacity duration-300 ease-in-out md:opacity-100 md:group-[.revealed]:opacity-0"
           aria-hidden="true"
         >
-          <div className="feature-card-big-icon-inner transition-transform duration-300 ease-in-out md:group-[.revealed]:scale-95">
-            <Icon className="w-16 h-16 md:w-20 md:h-20 text-[#156BFC]" />
+          <div className="feature-card-big-icon-inner transition-transform duration-300 ease-in-out md:group-[.revealed]:scale-95 drop-shadow-[0_0_15px_rgba(0,229,255,0.3)]">
+            <Icon className="w-16 h-16 md:w-20 md:h-20 text-[#00E5FF]" />
           </div>
         </div>
         {/* Content Layer: always visible on mobile; on desktop visible when revealed. */}
@@ -93,14 +93,14 @@ function FeatureCard({ feature, isTouchDevice }: { feature: Feature; isTouchDevi
           className="feature-card-content relative flex min-h-[280px] md:min-h-[300px] flex-col items-center justify-center p-6 md:p-8 opacity-100 transition-opacity duration-300 ease-in-out md:opacity-0 md:group-[.revealed]:opacity-100"
         >
           <div className="mb-4 md:mb-6 flex justify-center">
-            <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-[#156BFC]/10 flex items-center justify-center">
-              <Icon className="w-8 h-8 md:w-10 md:h-10 text-[#156BFC]" />
+            <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-[#00E5FF]/10 flex items-center justify-center border border-[#00E5FF]/20">
+              <Icon className="w-8 h-8 md:w-10 md:h-10 text-[#00E5FF]" />
             </div>
           </div>
-          <h3 className="text-gray-900 mb-2 md:mb-3 text-center font-semibold">
+          <h3 className="text-white mb-2 md:mb-3 text-center font-semibold text-xl">
             {feature.title}
           </h3>
-          <p className="text-gray-600 text-center text-base">
+          <p className="text-gray-400 text-center text-base">
             {feature.description}
           </p>
         </div>
@@ -114,7 +114,7 @@ export function Features() {
   return (
     <section
       id="features"
-      className={`py-16 md:py-20 px-4 sm:px-6 lg:px-8 ${isTouchDevice ? 'features-touch' : ''}`}
+      className={`py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-[#050505] ${isTouchDevice ? 'features-touch' : ''}`}
     >
       <div className="container mx-auto">
         <div className="text-center mb-12 md:mb-16">
@@ -123,7 +123,7 @@ export function Features() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-gray-900 mb-4"
+            className="text-white mb-4 font-extrabold"
           >
             Why Choose Zoopol
           </motion.h2>
@@ -132,7 +132,7 @@ export function Features() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-gray-600 max-w-2xl mx-auto px-4 text-lg"
+            className="text-gray-400 max-w-2xl mx-auto px-4 text-lg"
           >
             Built for Job Posters and Workers to connect effortlessly.
           </motion.p>
@@ -149,13 +149,14 @@ export function Features() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.6 }}
-            className="md:col-span-2 lg:col-span-3"
+            className="md:col-span-2 lg:col-span-3 mt-4"
           >
-            <div className="bg-[#156BFC]/25 rounded-3xl p-8 flex flex-col items-center justify-center text-center">
-              <h3 className="text-gray-900 mb-4">
+            <div className="bg-[#0A0F1C] border border-white/10 rounded-3xl p-8 flex flex-col items-center justify-center text-center relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#00E5FF]/0 via-[#00E5FF]/5 to-[#00E5FF]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <h3 className="text-white mb-4 font-bold text-2xl relative z-10">
                 We Help Your Work Get Done
               </h3>
-              <p className="text-gray-600 text-lg">
+              <p className="text-gray-400 text-lg relative z-10 max-w-3xl">
                 From short tasks to day-long jobs, thousands of businesses and households trust Zoopol to hire dependable workers instantly.
               </p>
             </div>

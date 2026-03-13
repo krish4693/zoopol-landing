@@ -13,17 +13,17 @@ interface Step {
 
 const posterSteps: Step[] = [
   {
-    icon: <Clipboard className="w-6 h-6 text-[#156BFC]" />,
+    icon: <Clipboard className="w-6 h-6 text-[#00E5FF]" />,
     title: 'Post a Job',
     description: 'Describe the task, set your budget and location — your job goes live instantly.'
   },
   {
-    icon: <UserCheck className="w-6 h-6 text-[#156BFC]" />,
+    icon: <UserCheck className="w-6 h-6 text-[#00E5FF]" />,
     title: 'Review Applicants',
     description: 'Compare worker profiles, ratings, and quotes to pick the right match.'
   },
   {
-    icon: <MessageCircle className="w-6 h-6 text-[#156BFC]" />,
+    icon: <MessageCircle className="w-6 h-6 text-[#00E5FF]" />,
     title: 'Chat & Hire',
     description: 'Message workers to finalize details and confirm the hire.'
   }
@@ -31,17 +31,17 @@ const posterSteps: Step[] = [
 
 const workerSteps: Step[] = [
   {
-    icon: <Search className="w-6 h-6 text-[#156BFC]" />,
+    icon: <Search className="w-6 h-6 text-[#00E5FF]" />,
     title: 'Browse Jobs',
     description: 'Find nearby jobs that match your skills, time, and availability.'
   },
   {
-    icon: <DollarSign className="w-6 h-6 text-[#156BFC]" />,
+    icon: <DollarSign className="w-6 h-6 text-[#00E5FF]" />,
     title: 'Apply with Your Rate',
     description: 'Send your expected pay along with a short message.'
   },
   {
-    icon: <CheckCircle2 className="w-6 h-6 text-[#156BFC]" />,
+    icon: <CheckCircle2 className="w-6 h-6 text-[#00E5FF]" />,
     title: 'Complete & Get Paid',
     description: 'Finish the job, confirm completion, and receive payment securely.'
   }
@@ -94,13 +94,13 @@ export function HowItWorks() {
           {/* Section Title */}
           <div className="text-center mb-12 md:mb-16 relative z-10">
             <h2 
-              className="text-gray-900 mb-4 md:mb-6" 
+              className="text-white mb-4 md:mb-6 font-extrabold" 
               style={{ letterSpacing: '-0.01em' }}
             >
               How Zoopol Works
             </h2>
             <p 
-              className="text-gray-600 max-w-2xl mx-auto px-4 text-sm md:text-base"
+              className="text-gray-400 max-w-2xl mx-auto px-4 text-sm md:text-base font-medium"
               style={{ lineHeight: '150%', fontSize: '16px' }}
             >
               Simple steps to get hired or hire someone instantly.
@@ -114,9 +114,9 @@ export function HowItWorks() {
               <div className="flex gap-2 sm:gap-4">
                 <button
                   onClick={() => handleTabClick('posters')}
-                  className={`\n                    flex-1 sm:flex-none px-4 sm:px-8 py-3 sm:py-3.5 rounded-full transition-all duration-400 relative border-2 text-sm sm:text-base\n                    ${activeTab === 'posters' 
-                      ? 'text-white bg-[#156BFC] border-[#156BFC]' 
-                      : 'text-gray-600 hover:text-gray-900 border-gray-300 hover:border-gray-400 bg-white'
+                  className={`\n                    flex-1 sm:flex-none px-4 sm:px-8 py-3 sm:py-3.5 rounded-full transition-all duration-400 relative border-2 text-sm sm:text-base font-bold\n                    ${activeTab === 'posters' 
+                      ? 'text-black bg-[#00E5FF] border-[#00E5FF] shadow-[0_0_15px_rgba(0,229,255,0.4)]' 
+                      : 'text-gray-400 hover:text-white border-white/10 hover:border-white/30 bg-[#0A0F1C]'
                     }
                   `}
                 >
@@ -126,9 +126,9 @@ export function HowItWorks() {
 
                 <button
                   onClick={() => handleTabClick('workers')}
-                  className={`\n                    flex-1 sm:flex-none px-4 sm:px-8 py-3 sm:py-3.5 rounded-full transition-all duration-400 relative border-2 text-sm sm:text-base\n                    ${activeTab === 'workers' 
-                      ? 'text-white bg-[#156BFC] border-[#156BFC]' 
-                      : 'text-gray-600 hover:text-gray-900 border-gray-300 hover:border-gray-400 bg-white'
+                  className={`\n                    flex-1 sm:flex-none px-4 sm:px-8 py-3 sm:py-3.5 rounded-full transition-all duration-400 relative border-2 text-sm sm:text-base font-bold\n                    ${activeTab === 'workers' 
+                      ? 'text-black bg-[#00E5FF] border-[#00E5FF] shadow-[0_0_15px_rgba(0,229,255,0.4)]' 
+                      : 'text-gray-400 hover:text-white border-white/10 hover:border-white/30 bg-[#0A0F1C]'
                     }
                   `}
                 >
@@ -139,9 +139,9 @@ export function HowItWorks() {
 
               {/* Progress Bar */}
               {autoSwitch && (
-                <div className="w-full h-1 bg-gray-200 rounded-full overflow-hidden">
+                <div className="w-full h-1 bg-white/10 rounded-full overflow-hidden mt-4">
                   <motion.div 
-                    className="h-full bg-[#156BFC] rounded-full"
+                    className="h-full bg-[#00E5FF] rounded-full shadow-[0_0_10px_rgba(0,229,255,0.8)]"
                     initial={{ width: '0%' }}
                     animate={{ width: `${progress}%` }}
                     transition={{ duration: 0.1, ease: 'linear' }}
@@ -181,16 +181,16 @@ export function HowItWorks() {
                         className="flex gap-5 items-start group"
                       >
                         <div className="flex-shrink-0">
-                          <div className="w-14 h-14 rounded-full bg-[#156BFC]/20 flex items-center justify-center transition-all duration-300 group-hover:bg-[#156BFC]/30">
+                          <div className="w-14 h-14 rounded-full bg-[#00E5FF]/10 border border-[#00E5FF]/20 flex items-center justify-center transition-all duration-300 group-hover:bg-[#00E5FF]/20 group-hover:shadow-[0_0_15px_rgba(0,229,255,0.3)]">
                             {step.icon}
                           </div>
                         </div>
                         <div className="flex-1">
-                          <h3 className="text-gray-900 mb-2">
+                          <h3 className="text-white mb-2 font-bold text-xl">
                             {step.title}
                           </h3>
                           <p 
-                            className="text-gray-600 max-w-xl"
+                            className="text-gray-400 max-w-xl"
                             style={{ lineHeight: '150%', fontSize: '18px' }}
                           >
                             {step.description}
@@ -217,88 +217,88 @@ export function HowItWorks() {
                     className="relative"
                   >
                     {activeTab === 'posters' ? (
-                      <div className="relative rounded-3xl p-8 lg:p-12 bg-gray-50 border-2 border-gray-200">
+                      <div className="relative rounded-4xl p-8 lg:p-12 bg-[#0A0F1C] border border-white/10 shadow-[0_0_30px_rgba(0,229,255,0.05)]">
                         {/* Job Poster Illustration */}
                         <svg viewBox="0 0 400 400" className="w-full h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
                           {/* Person */}
-                          <circle cx="200" cy="120" r="35" stroke="#156BFC" strokeWidth="3" />
-                          <path d="M 200 155 L 200 250" stroke="#156BFC" strokeWidth="3" strokeLinecap="round" />
-                          <path d="M 200 190 L 160 220" stroke="#156BFC" strokeWidth="3" strokeLinecap="round" />
-                          <path d="M 200 190 L 240 220" stroke="#156BFC" strokeWidth="3" strokeLinecap="round" />
-                          <path d="M 200 250 L 170 310" stroke="#156BFC" strokeWidth="3" strokeLinecap="round" />
-                          <path d="M 200 250 L 230 310" stroke="#156BFC" strokeWidth="3" strokeLinecap="round" />
+                          <circle cx="200" cy="120" r="35" stroke="#00E5FF" strokeWidth="3" />
+                          <path d="M 200 155 L 200 250" stroke="#00E5FF" strokeWidth="3" strokeLinecap="round" />
+                          <path d="M 200 190 L 160 220" stroke="#00E5FF" strokeWidth="3" strokeLinecap="round" />
+                          <path d="M 200 190 L 240 220" stroke="#00E5FF" strokeWidth="3" strokeLinecap="round" />
+                          <path d="M 200 250 L 170 310" stroke="#00E5FF" strokeWidth="3" strokeLinecap="round" />
+                          <path d="M 200 250 L 230 310" stroke="#00E5FF" strokeWidth="3" strokeLinecap="round" />
                           
                           {/* Laptop */}
-                          <rect x="110" y="200" width="100" height="60" rx="4" stroke="#156BFC" strokeWidth="3" fill="none" />
-                          <rect x="105" y="260" width="110" height="8" rx="2" stroke="#156BFC" strokeWidth="3" fill="rgba(21, 107, 252, 0.2)" />
+                          <rect x="110" y="200" width="100" height="60" rx="4" stroke="#00E5FF" strokeWidth="3" fill="#0A0F1C" />
+                          <rect x="105" y="260" width="110" height="8" rx="2" stroke="#00E5FF" strokeWidth="3" fill="rgba(0, 229, 255, 0.2)" />
                           
                           {/* Document/Job Post Icon */}
-                          <rect x="250" y="140" width="80" height="100" rx="6" stroke="#156BFC" strokeWidth="3" fill="rgba(21, 107, 252, 0.1)" />
-                          <line x1="265" y1="165" x2="315" y2="165" stroke="#156BFC" strokeWidth="2" strokeLinecap="round" />
-                          <line x1="265" y1="185" x2="315" y2="185" stroke="#156BFC" strokeWidth="2" strokeLinecap="round" />
-                          <line x1="265" y1="205" x2="300" y2="205" stroke="#156BFC" strokeWidth="2" strokeLinecap="round" />
+                          <rect x="250" y="140" width="80" height="100" rx="6" stroke="#00E5FF" strokeWidth="3" fill="rgba(0, 229, 255, 0.1)" />
+                          <line x1="265" y1="165" x2="315" y2="165" stroke="#00E5FF" strokeWidth="2" strokeLinecap="round" />
+                          <line x1="265" y1="185" x2="315" y2="185" stroke="#00E5FF" strokeWidth="2" strokeLinecap="round" />
+                          <line x1="265" y1="205" x2="300" y2="205" stroke="#00E5FF" strokeWidth="2" strokeLinecap="round" />
                           
                           {/* Checkmark */}
-                          <circle cx="310" cy="100" r="20" stroke="#156BFC" strokeWidth="3" fill="rgba(21, 107, 252, 0.2)" />
-                          <path d="M 300 100 L 305 108 L 320 92" stroke="#156BFC" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                          <circle cx="310" cy="100" r="20" stroke="#00E5FF" strokeWidth="3" fill="rgba(0, 229, 255, 0.2)" />
+                          <path d="M 300 100 L 305 108 L 320 92" stroke="#00E5FF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                           
                           {/* Money/Budget Icon */}
-                          <circle cx="85" cy="140" r="25" stroke="#156BFC" strokeWidth="3" fill="rgba(21, 107, 252, 0.1)" />
-                          <text x="85" y="150" textAnchor="middle" fill="#156BFC" fontSize="24" fontWeight="bold">$</text>
+                          <circle cx="85" cy="140" r="25" stroke="#00E5FF" strokeWidth="3" fill="rgba(0, 229, 255, 0.1)" />
+                          <text x="85" y="150" textAnchor="middle" fill="#00E5FF" fontSize="24" fontWeight="bold">$</text>
                           
                           {/* Decorative dots */}
-                          <circle cx="60" cy="320" r="4" fill="#156BFC" opacity="0.6" />
-                          <circle cx="340" cy="320" r="4" fill="#156BFC" opacity="0.6" />
-                          <circle cx="340" cy="70" r="4" fill="#156BFC" opacity="0.6" />
+                          <circle cx="60" cy="320" r="4" fill="#00E5FF" opacity="0.6" />
+                          <circle cx="340" cy="320" r="4" fill="#00E5FF" opacity="0.6" />
+                          <circle cx="340" cy="70" r="4" fill="#00E5FF" opacity="0.6" />
                         </svg>
                       </div>
                     ) : (
-                      <div className="relative rounded-3xl p-8 lg:p-12 bg-gray-50 border-2 border-gray-200">
+                      <div className="relative rounded-4xl p-8 lg:p-12 bg-[#0A0F1C] border border-white/10 shadow-[0_0_30px_rgba(0,229,255,0.05)]">
                         {/* Worker Illustration */}
                         <svg viewBox="0 0 400 400" className="w-full h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
                           {/* Person */}
-                          <circle cx="200" cy="120" r="35" stroke="#156BFC" strokeWidth="3" />
-                          <path d="M 200 155 L 200 250" stroke="#156BFC" strokeWidth="3" strokeLinecap="round" />
-                          <path d="M 200 190 L 155 230" stroke="#156BFC" strokeWidth="3" strokeLinecap="round" />
-                          <path d="M 200 190 L 245 180" stroke="#156BFC" strokeWidth="3" strokeLinecap="round" />
-                          <path d="M 200 250 L 170 320" stroke="#156BFC" strokeWidth="3" strokeLinecap="round" />
-                          <path d="M 200 250 L 230 320" stroke="#156BFC" strokeWidth="3" strokeLinecap="round" />
+                          <circle cx="200" cy="120" r="35" stroke="#00E5FF" strokeWidth="3" />
+                          <path d="M 200 155 L 200 250" stroke="#00E5FF" strokeWidth="3" strokeLinecap="round" />
+                          <path d="M 200 190 L 155 230" stroke="#00E5FF" strokeWidth="3" strokeLinecap="round" />
+                          <path d="M 200 190 L 245 180" stroke="#00E5FF" strokeWidth="3" strokeLinecap="round" />
+                          <path d="M 200 250 L 170 320" stroke="#00E5FF" strokeWidth="3" strokeLinecap="round" />
+                          <path d="M 200 250 L 230 320" stroke="#00E5FF" strokeWidth="3" strokeLinecap="round" />
                           
                           {/* Hard Hat */}
-                          <path d="M 170 110 Q 200 95 230 110" stroke="#156BFC" strokeWidth="3" fill="none" />
-                          <rect x="165" y="108" width="70" height="8" rx="2" fill="rgba(21, 107, 252, 0.3)" stroke="#156BFC" strokeWidth="2" />
+                          <path d="M 170 110 Q 200 95 230 110" stroke="#00E5FF" strokeWidth="3" fill="none" />
+                          <rect x="165" y="108" width="70" height="8" rx="2" fill="rgba(0, 229, 255, 0.3)" stroke="#00E5FF" strokeWidth="2" />
                           
                           {/* Tool/Wrench */}
-                          <rect x="240" y="155" width="60" height="12" rx="6" stroke="#156BFC" strokeWidth="3" fill="rgba(21, 107, 252, 0.2)" transform="rotate(45 270 161)" />
-                          <rect x="285" y="145" width="25" height="25" rx="3" stroke="#156BFC" strokeWidth="3" fill="none" />
+                          <rect x="240" y="155" width="60" height="12" rx="6" stroke="#00E5FF" strokeWidth="3" fill="rgba(0, 229, 255, 0.2)" transform="rotate(45 270 161)" />
+                          <rect x="285" y="145" width="25" height="25" rx="3" stroke="#00E5FF" strokeWidth="3" fill="none" />
                           
                           {/* Toolbox */}
-                          <rect x="100" y="230" width="70" height="50" rx="4" stroke="#156BFC" strokeWidth="3" fill="rgba(21, 107, 252, 0.1)" />
-                          <rect x="120" y="220" width="30" height="10" rx="2" stroke="#156BFC" strokeWidth="3" fill="none" />
-                          <line x1="135" y1="245" x2="135" y2="265" stroke="#156BFC" strokeWidth="2" />
-                          <line x1="125" y1="255" x2="145" y2="255" stroke="#156BFC" strokeWidth="2" />
+                          <rect x="100" y="230" width="70" height="50" rx="4" stroke="#00E5FF" strokeWidth="3" fill="rgba(0, 229, 255, 0.1)" />
+                          <rect x="120" y="220" width="30" height="10" rx="2" stroke="#00E5FF" strokeWidth="3" fill="none" />
+                          <line x1="135" y1="245" x2="135" y2="265" stroke="#00E5FF" strokeWidth="2" />
+                          <line x1="125" y1="255" x2="145" y2="255" stroke="#00E5FF" strokeWidth="2" />
                           
                           {/* Star ratings/quality */}
                           <g transform="translate(260, 240)">
-                            <path d="M 15 5 L 18 12 L 26 12 L 20 17 L 22 25 L 15 20 L 8 25 L 10 17 L 4 12 L 12 12 Z" stroke="#156BFC" strokeWidth="2" fill="rgba(21, 107, 252, 0.2)" />
+                            <path d="M 15 5 L 18 12 L 26 12 L 20 17 L 22 25 L 15 20 L 8 25 L 10 17 L 4 12 L 12 12 Z" stroke="#00E5FF" strokeWidth="2" fill="rgba(0, 229, 255, 0.2)" />
                           </g>
                           
                           {/* Gear/Settings */}
-                          <circle cx="310" cy="120" r="22" stroke="#156BFC" strokeWidth="3" fill="none" />
-                          <circle cx="310" cy="120" r="12" stroke="#156BFC" strokeWidth="3" fill="rgba(21, 107, 252, 0.2)" />
-                          <line x1="310" y1="96" x2="310" y2="88" stroke="#156BFC" strokeWidth="3" strokeLinecap="round" />
-                          <line x1="310" y1="152" x2="310" y2="144" stroke="#156BFC" strokeWidth="3" strokeLinecap="round" />
-                          <line x1="286" y1="120" x2="294" y2="120" stroke="#156BFC" strokeWidth="3" strokeLinecap="round" />
-                          <line x1="334" y1="120" x2="326" y2="120" stroke="#156BFC" strokeWidth="3" strokeLinecap="round" />
+                          <circle cx="310" cy="120" r="22" stroke="#00E5FF" strokeWidth="3" fill="none" />
+                          <circle cx="310" cy="120" r="12" stroke="#00E5FF" strokeWidth="3" fill="rgba(0, 229, 255, 0.2)" />
+                          <line x1="310" y1="96" x2="310" y2="88" stroke="#00E5FF" strokeWidth="3" strokeLinecap="round" />
+                          <line x1="310" y1="152" x2="310" y2="144" stroke="#00E5FF" strokeWidth="3" strokeLinecap="round" />
+                          <line x1="286" y1="120" x2="294" y2="120" stroke="#00E5FF" strokeWidth="3" strokeLinecap="round" />
+                          <line x1="334" y1="120" x2="326" y2="120" stroke="#00E5FF" strokeWidth="3" strokeLinecap="round" />
                           
                           {/* Dollar sign - payment */}
-                          <circle cx="90" cy="140" r="25" stroke="#156BFC" strokeWidth="3" fill="rgba(21, 107, 252, 0.1)" />
-                          <text x="90" y="150" textAnchor="middle" fill="#156BFC" fontSize="24" fontWeight="bold">$</text>
+                          <circle cx="90" cy="140" r="25" stroke="#00E5FF" strokeWidth="3" fill="rgba(0, 229, 255, 0.1)" />
+                          <text x="90" y="150" textAnchor="middle" fill="#00E5FF" fontSize="24" fontWeight="bold">$</text>
                           
                           {/* Decorative dots */}
-                          <circle cx="60" cy="320" r="4" fill="#156BFC" opacity="0.6" />
-                          <circle cx="340" cy="320" r="4" fill="#156BFC" opacity="0.6" />
-                          <circle cx="70" cy="80" r="4" fill="#156BFC" opacity="0.6" />
+                          <circle cx="60" cy="320" r="4" fill="#00E5FF" opacity="0.6" />
+                          <circle cx="340" cy="320" r="4" fill="#00E5FF" opacity="0.6" />
+                          <circle cx="70" cy="80" r="4" fill="#00E5FF" opacity="0.6" />
                         </svg>
                       </div>
                     )}

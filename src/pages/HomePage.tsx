@@ -96,25 +96,25 @@ function WorkerCard({
       }
     >
       <div
-        className={`bg-gradient-to-br ${gradient} rounded-3xl p-4 lg:p-6 border-4 border-white ${shadow}`}
+        className={`bg-gradient-to-br ${gradient} rounded-3xl p-4 lg:p-6 border-4 border-[#0A0F1C]/50 ${shadow}`}
       >
         <div className="flex items-start justify-between mb-3">
-          <div className="flex items-center gap-1 bg-white/90 rounded-full px-2 py-1">
+          <div className="flex items-center gap-1 bg-black/40 backdrop-blur-md rounded-full px-2 py-1 border border-white/10">
             <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
-            <span className="text-xs">{rating}</span>
+            <span className="text-xs text-white/90 font-medium">{rating}</span>
           </div>
         </div>
         <div className="flex gap-1 mb-3 flex-wrap">
-          <span className="text-xs bg-white/90 rounded-full px-2 py-1">{tag}</span>
+          <span className="text-xs bg-black/40 backdrop-blur-md rounded-full px-2 py-1 text-white/90 border border-white/10">{tag}</span>
         </div>
         <ImageWithFallback
           src={image}
           alt={alt}
           className="w-full h-32 lg:h-40 object-cover rounded-2xl mb-2"
         />
-        <div className="bg-white/95 rounded-xl p-2 lg:p-3">
-          <h3 className="text-gray-900 text-sm lg:text-base">{name}</h3>
-          <p className="text-xs text-gray-600">{role}</p>
+        <div className="bg-black/60 backdrop-blur-md rounded-xl p-2 lg:p-3 border border-white/10">
+          <h3 className="text-white text-sm lg:text-base font-semibold">{name}</h3>
+          <p className="text-xs text-[#00E5FF]">{role}</p>
         </div>
       </div>
     </div>
@@ -139,7 +139,7 @@ export default function HomePage() {
       </Helmet>
       <section
         id="home"
-        className="w-full min-h-screen bg-gray-900 relative overflow-hidden"
+        className="w-full min-h-screen bg-[#050505] relative overflow-hidden"
         style={{ backgroundImage: GRID_PATTERN, backgroundSize: "40px 40px" }}
       >
         <div className="w-full min-h-[85vh] flex flex-col p-8 lg:p-12 relative overflow-hidden">
@@ -167,20 +167,20 @@ export default function HomePage() {
             >
               <path
                 d="M 100 400 Q 300 350, 500 400"
-                stroke="#156BFC"
-                strokeWidth="3"
+                stroke="#00E5FF"
+                strokeWidth="2"
                 fill="none"
               />
               <path
                 d="M 200 300 Q 400 250, 600 300"
-                stroke="#156BFC"
-                strokeWidth="3"
+                stroke="#00E5FF"
+                strokeWidth="2"
                 fill="none"
               />
               <path
                 d="M 300 500 Q 500 450, 700 500"
-                stroke="#156BFC"
-                strokeWidth="3"
+                stroke="#00E5FF"
+                strokeWidth="2"
                 fill="none"
               />
             </motion.svg>
@@ -199,8 +199,8 @@ export default function HomePage() {
                   y1="30"
                   x2="50"
                   y2="30"
-                  stroke="#156BFC"
-                  strokeWidth="3"
+                  stroke="#00E5FF"
+                  strokeWidth="2"
                   strokeLinecap="round"
                 />
                 <line
@@ -208,8 +208,8 @@ export default function HomePage() {
                   y1="10"
                   x2="30"
                   y2="50"
-                  stroke="#156BFC"
-                  strokeWidth="3"
+                  stroke="#00E5FF"
+                  strokeWidth="2"
                   strokeLinecap="round"
                 />
               </svg>
@@ -229,7 +229,7 @@ export default function HomePage() {
                   y1="20"
                   x2="35"
                   y2="20"
-                  stroke="#156BFC"
+                  stroke="#00E5FF"
                   strokeWidth="2"
                   strokeLinecap="round"
                 />
@@ -238,7 +238,7 @@ export default function HomePage() {
                   y1="5"
                   x2="20"
                   y2="35"
-                  stroke="#156BFC"
+                  stroke="#00E5FF"
                   strokeWidth="2"
                   strokeLinecap="round"
                 />
@@ -253,12 +253,12 @@ export default function HomePage() {
               {/* Left column - text content */}
               <div className="flex flex-col items-center lg:items-start text-center lg:text-left w-full max-w-2xl lg:max-w-none">
                 <motion.div
-                  className="inline-flex rounded-full p-[2px] bg-gradient-to-r from-[#156BFC] via-[#4A90FF] to-[#156BFC] mb-6 md:mb-8"
+                  className="inline-flex rounded-full p-[1px] bg-gradient-to-r from-[#00E5FF]/40 via-[#00E5FF] to-[#00E5FF]/40 mb-6 md:mb-8"
                   initial={heroInitial}
                   animate={{ opacity: 1, y: 0 }}
                   transition={reduceMotion ? { duration: 0 } : { ...heroTransition, delay: 0.1 }}
                 >
-                  <div className="flex items-center gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-full bg-gray-900 text-white/70 text-xs md:text-sm">
+                  <div className="flex items-center gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-full bg-[#050505] text-[#E0F2FE] text-xs md:text-sm">
                     <span className="hidden sm:inline">
                       +10 thousands of workers ready to collaborate
                     </span>
@@ -267,16 +267,16 @@ export default function HomePage() {
                 </motion.div>
 
                 <motion.div
-                  className="mb-6 md:mb-8"
+                  className="mb-4 md:mb-6"
                   initial={heroInitial}
                   animate={{ opacity: 1, y: 0 }}
                   transition={reduceMotion ? { duration: 0 } : { ...heroTransition, delay: 0.2 }}
                 >
-                  <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white uppercase leading-tight font-bold">
+                  <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white uppercase leading-tight font-extrabold tracking-tight">
                     HIRE IN MINUTES.
                     <br />
                     <motion.span
-                      className="text-[#156BFC] inline-block"
+                      className="text-[#00E5FF] inline-block"
                       initial={reduceMotion ? false : { opacity: 0, scale: 0.98 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={reduceMotion ? { duration: 0 } : { ...heroTransition, delay: 0.1 }}
@@ -312,7 +312,7 @@ export default function HomePage() {
                           : { ...heroTransition, delay: 0.45 + i * 0.05 }
                       }
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#156BFC] shrink-0" />
+                      <span className="w-2 h-2 rounded-full bg-[#00E5FF] shrink-0" />
                       <span>{item}</span>
                     </motion.div>
                   ))}
@@ -337,24 +337,24 @@ export default function HomePage() {
                 {/* Callout bubbles - optional feature highlights */}
                 <div className="flex flex-wrap gap-4 mt-8 justify-center lg:justify-start">
                   <motion.div
-                    className="flex items-center gap-2 bg-white/10 rounded-xl px-4 py-2 backdrop-blur-sm shadow-lg"
+                    className="flex items-center gap-2 bg-[#0A0F1C]/80 border border-white/5 rounded-full px-4 py-2 backdrop-blur-md shadow-lg"
                     initial={heroInitial}
                     animate={{ opacity: 1, y: 0 }}
                     transition={reduceMotion ? { duration: 0 } : { ...heroTransition, delay: 0.7 }}
                   >
-                    <Zap className="w-4 h-4 text-white shrink-0" />
-                    <span className="text-white text-xs md:text-sm">
+                    <Zap className="w-4 h-4 text-[#00E5FF] shrink-0" />
+                    <span className="text-white text-xs md:text-sm font-medium">
                       Quick booking
                     </span>
                   </motion.div>
                   <motion.div
-                    className="flex items-center gap-2 bg-white/10 rounded-xl px-4 py-2 backdrop-blur-sm shadow-lg"
+                    className="flex items-center gap-2 bg-[#0A0F1C]/80 border border-white/5 rounded-full px-4 py-2 backdrop-blur-md shadow-lg"
                     initial={heroInitial}
                     animate={{ opacity: 1, y: 0 }}
                     transition={reduceMotion ? { duration: 0 } : { ...heroTransition, delay: 0.8 }}
                   >
-                    <Check className="w-4 h-4 text-white shrink-0" />
-                    <span className="text-white text-xs md:text-sm">
+                    <Check className="w-4 h-4 text-[#00E5FF] shrink-0" />
+                    <span className="text-white text-xs md:text-sm font-medium">
                       Transparent pricing
                     </span>
                   </motion.div>

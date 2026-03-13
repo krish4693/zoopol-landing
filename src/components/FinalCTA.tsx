@@ -6,11 +6,11 @@ export function FinalCTA() {
   return (
     <section className="py-8 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto">
-        <div className="bg-gray-900 rounded-[32px] md:rounded-[40px] p-6 md:p-8 lg:p-16 relative overflow-hidden">
+        <div className="bg-[#0A0F1C] border border-white/10 rounded-[32px] md:rounded-[40px] p-6 md:p-8 lg:p-16 relative overflow-hidden shadow-[0_0_50px_rgba(0,229,255,0.05)]">
           {/* Decorative lines */}
           <svg className="absolute top-1/2 left-0 w-full h-full pointer-events-none opacity-30" style={{ transform: 'translateY(-50%)' }}>
-            <path d="M 100 200 Q 300 150, 500 200" stroke="#156BFC" strokeWidth="3" fill="none" opacity="0.3"/>
-            <path d="M 200 100 Q 400 50, 600 100" stroke="#156BFC" strokeWidth="3" fill="none" opacity="0.3"/>
+            <path d="M 100 200 Q 300 150, 500 200" stroke="#00E5FF" strokeWidth="2" fill="none" opacity="0.4"/>
+            <path d="M 200 100 Q 400 50, 600 100" stroke="#00E5FF" strokeWidth="2" fill="none" opacity="0.4"/>
           </svg>
 
           <div className="relative z-10 text-center max-w-4xl mx-auto">
@@ -19,9 +19,9 @@ export function FinalCTA() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-white mb-4 md:mb-6 text-3xl md:text-4xl lg:text-5xl"
+              className="text-white mb-4 md:mb-6 text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight"
             >
-              Simple jobs. Trusted workers. Fast payments.
+              Simple jobs. Trusted workers. <span className="text-[#00E5FF]">Fast payments.</span>
             </motion.h2>
             
             <motion.p
@@ -29,7 +29,7 @@ export function FinalCTA() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-white/80 mb-8 md:mb-10 max-w-2xl mx-auto text-base md:text-lg px-4"
+              className="text-gray-400 mb-8 md:mb-10 max-w-2xl mx-auto text-base md:text-lg px-4 font-medium"
               style={{ fontSize: '16px' }}
             >
               Your work and your workforce — managed in one place.
