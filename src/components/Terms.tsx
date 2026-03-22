@@ -7,7 +7,7 @@ export function Terms() {
     <section id="terms" className="py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
       <ReadingProgress />
       <div className="container mx-auto max-w-4xl">
-        <div className="bg-white rounded-3xl border border-gray-200 shadow-sm p-6 md:p-10">
+        <div className="bg-[#0A0F1C] rounded-3xl border border-white/10 shadow-sm p-6 md:p-10">
           <div className="mb-6 md:mb-8 text-center">
             <div className="flex items-center justify-center gap-3 mb-2">
               <FileText className="w-6 h-6 text-[#156BFC]" aria-hidden="true" />
