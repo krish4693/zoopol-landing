@@ -3,7 +3,7 @@ import appStoreButtons from 'figma:asset/ba3ea06de21fd32944af108b203e16e4e384730
 
 export function FinalCTA() {
   return (
-    <section className="relative w-full py-24 md:py-32 lg:py-40 overflow-hidden flex items-center justify-center"
+    <section className="relative w-full py-32 md:py-48 lg:py-56 overflow-hidden flex items-center justify-center"
       style={{ background: '#050505' }}
     >
       {/* Background Image Layer — heavily dimmed */}
@@ -36,12 +36,12 @@ export function FinalCTA() {
             <span style={{ background: 'linear-gradient(to right, #00E5FF, #3B82F6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>to work?</span>
           </h2>
           
-          <p className="mb-12 max-w-2xl mx-auto text-lg md:text-xl font-medium" style={{ color: '#9CA3AF', lineHeight: 1.7 }}>
+          <p className="mb-14 max-w-2xl mx-auto text-lg md:text-xl font-medium" style={{ color: '#9CA3AF', lineHeight: 1.7 }}>
             Join thousands of businesses and verified professionals already using Zoopol to connect, collaborate, and grow.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
             {/* Primary — Vibrant Gradient */}
             <motion.a
               href="#"
@@ -49,9 +49,9 @@ export function FinalCTA() {
                 display: 'inline-flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                gap: '8px',
+                gap: '10px',
                 whiteSpace: 'nowrap' as const,
-                padding: '16px 32px',
+                padding: '16px 40px',
                 borderRadius: '999px',
                 background: 'linear-gradient(135deg, #00E5FF 0%, #3B82F6 100%)',
                 color: '#050505',
@@ -75,9 +75,9 @@ export function FinalCTA() {
                 display: 'inline-flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                gap: '8px',
+                gap: '10px',
                 whiteSpace: 'nowrap' as const,
-                padding: '16px 32px',
+                padding: '16px 40px',
                 borderRadius: '999px',
                 background: 'rgba(255, 255, 255, 0.08)',
                 backdropFilter: 'blur(20px)',

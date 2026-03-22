@@ -84,26 +84,22 @@ export default function HomePage() {
 
                 {/* CTAs */}
                 <motion.div
-                  className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 justify-center md:justify-start w-full max-w-[280px] sm:max-w-none mx-auto md:mx-0"
+                  className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start w-full max-w-[280px] sm:max-w-none mx-auto md:mx-0"
                   initial={heroInitial}
                   animate={{ opacity: 1, y: 0 }}
                   transition={reduceMotion ? { duration: 0 } : { ...heroTransition, delay: 0.5 }}
                 >
-                  <button className="w-full sm:w-auto rounded-full px-8 py-4 font-bold text-base text-[#050505] shadow-[0_0_30px_rgba(0,229,255,0.35)] transition-all hover:scale-105 hover:shadow-[0_0_50px_rgba(0,229,255,0.55)] active:scale-[0.97]"
-                    style={{
-                      background: 'linear-gradient(135deg, #00E5FF 0%, #3B82F6 100%)',
-                    }}
-                  >
+                  <button className="w-full sm:w-auto rounded-full px-8 py-4 bg-[#00E5FF] hover:bg-white hover:text-black text-black font-bold text-base shadow-[0_0_20px_rgba(0,229,255,0.3)] transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)]">
                     Post a Job Now
                   </button>
-                  <button className="w-full sm:w-auto rounded-full px-8 py-4 bg-white/10 backdrop-blur-lg border border-white/20 text-white font-bold text-base transition-all hover:bg-white/20 hover:border-white/40 active:scale-[0.97]">
+                  <button className="w-full sm:w-auto rounded-full px-8 py-4 bg-[#0A0F1C] border border-white/10 hover:border-white/30 text-white font-bold text-base transition-all hover:bg-white/5">
                     Become a Worker
                   </button>
                 </motion.div>
 
                 {/* Social Proof */}
                 <motion.div
-                  className="flex items-center gap-4 mt-12 md:mt-16 pt-8 border-t border-white/10 w-full justify-center md:justify-start"
+                  className="flex items-center gap-4 mt-8 md:mt-12 pt-6 md:pt-8 border-t border-white/10 w-full justify-center md:justify-start"
                   initial={heroInitial}
                   animate={{ opacity: 1, y: 0 }}
                   transition={reduceMotion ? { duration: 0 } : { ...heroTransition, delay: 0.6 }}
