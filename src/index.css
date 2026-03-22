@@ -2240,11 +2240,17 @@
    xl: 80rem (1280px), 2xl: 96rem (1536px)
    =================================================================== */
 
+.auto-rows-\[320px\] { grid-auto-rows: 320px !important; }
+
 /* --- md breakpoint (>= 48rem / 768px) --- */
 @media (width >= 48rem) {
   .md\:flex { display: flex !important; }
   .md\:grid { display: grid !important; }
   .md\:hidden { display: none !important; }
+  .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+  .md\:col-span-2 { grid-column: span 2 / span 2 !important; }
+  .md\:col-span-1 { grid-column: span 1 / span 1 !important; }
+  .md\:auto-rows-\[380px\] { grid-auto-rows: 380px !important; }
   .md\:grid-cols-\[1\.2fr_1fr\] { grid-template-columns: 1.2fr 1fr; }
   .md\:items-start { align-items: flex-start !important; }
   .md\:text-left { text-align: left !important; }
@@ -2252,12 +2258,16 @@
   .md\:gap-4 { gap: 1rem !important; }
   .md\:gap-16 { gap: 4rem !important; }
   .md\:mt-0 { margin-top: 0 !important; }
+  .md\:mt-12 { margin-top: 3rem !important; }
   .md\:mb-16 { margin-bottom: 4rem !important; }
+  .md\:pt-8 { padding-top: 2rem !important; }
   .md\:px-8 { padding-left: 2rem !important; padding-right: 2rem !important; }
+  .md\:mx-0 { margin-left: 0 !important; margin-right: 0 !important; }
   .md\:text-7xl { font-size: 4.5rem !important; line-height: 1 !important; }
   .md\:text-8xl { font-size: 6rem !important; line-height: 1 !important; }
   .md\:text-xl { font-size: 1.25rem !important; line-height: 1.75rem !important; }
   .md\:text-4xl { font-size: 2.25rem !important; line-height: 2.5rem !important; }
+  .md\:text-5xl { font-size: 3rem !important; line-height: 1 !important; }
   .md\:leading-relaxed { line-height: 1.625 !important; }
   .md\:h-8 { height: 2rem !important; }
   .md\:h-14 { height: 3.5rem !important; }
@@ -2297,6 +2307,7 @@
   .lg\:text-\[7rem\] { font-size: 7rem !important; line-height: 1 !important; }
   .lg\:text-4xl { font-size: 2.25rem !important; line-height: 2.5rem !important; }
   .lg\:text-5xl { font-size: 3rem !important; line-height: 1 !important; }
+  .lg\:text-6xl { font-size: 3.75rem !important; line-height: 1 !important; }
   .lg\:text-8xl { font-size: 6rem !important; line-height: 1 !important; }
   .lg\:min-h-\[700px\] { min-height: 700px !important; }
   .lg\:min-h-\[60vh\] { min-height: 60vh !important; }
@@ -2338,4 +2349,6 @@
   .sm\:w-auto { width: auto !important; }
   .sm\:text-base { font-size: 1rem !important; line-height: 1.5rem !important; }
   .sm\:text-7xl { font-size: 4.5rem !important; line-height: 1 !important; }
+  .sm\:text-4xl { font-size: 2.25rem !important; line-height: 2.5rem !important; }
+  .sm\:max-w-none { max-width: none !important; }
 }

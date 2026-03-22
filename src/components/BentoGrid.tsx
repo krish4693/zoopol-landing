@@ -36,8 +36,8 @@ const BENTO_ITEMS = [
 
 export function BentoGrid() {
   return (
-    <section id="features" className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-[#050505]">
-      <div className="max-w-7xl mx-auto">
+    <section id="features" className="min-h-screen flex flex-col justify-center w-full py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-[#050505]">
+      <div className="max-w-7xl mx-auto w-full">
         <div className="mb-16 md:mb-24 flex flex-col items-center md:items-start text-center md:text-left">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -53,7 +53,7 @@ export function BentoGrid() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-6xl text-white font-black tracking-tighter mb-6 max-w-2xl"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-black tracking-tighter mb-6 max-w-2xl"
           >
             Everything you need to <br className="hidden md:block"/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00E5FF] to-blue-500">get work done.</span>
