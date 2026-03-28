@@ -10,14 +10,14 @@ export function Contact() {
             <p className="text-gray-600 text-sm md:text-base">We’re here to help with any questions.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <div className="rounded-2xl border border-gray-200 p-6">
               <div className="flex items-center gap-3 mb-3">
                 <Mail className="w-5 h-5 text-[#156BFC]" />
                 <h3 className="text-gray-900 text-xl font-semibold">Email</h3>
               </div>
               <p className="text-gray-600 text-base mb-3">Reach us anytime and we’ll get back soon.</p>
-              <a href="mailto:zoopol@gmail.com" className="text-[#156BFC] hover:underline">zoopol@gmail.com</a>
+              <a href="mailto:zoopol.india@gmail.com" className="text-[#156BFC] hover:underline">zoopol.india@gmail.com</a>
             </div>
 
             <div className="rounded-2xl border border-gray-200 p-6">
@@ -26,8 +26,21 @@ export function Contact() {
                 <h3 className="text-gray-900 text-xl font-semibold">Phone</h3>
               </div>
               <p className="text-gray-600 text-base mb-3">Call us during business hours.</p>
-              <a href="tel:+919497429989" className="text-[#156BFC] hover:underline">+91 9497429989</a>
+              <a href="tel:7510339308" className="text-[#156BFC] hover:underline">7510339308</a>
             </div>
+          </div>
+          
+          <div className="rounded-2xl border border-gray-200 p-6">
+            <div className="flex items-center gap-3 mb-3">
+              <h3 className="text-gray-900 text-xl font-semibold">🏢 Registered Address</h3>
+            </div>
+            <p className="text-gray-600 text-base">
+              OCEAN POINT PRIVATE LIMITED<br />
+              157-Kunneledath<br />
+              Avoly, Muvattupuzha<br />
+              Ernakulam, Kerala – 686670<br />
+              India
+            </p>
           </div>
 
           <div className="mt-8 text-center">

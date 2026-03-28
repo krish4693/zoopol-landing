@@ -18,7 +18,8 @@ export default function Header() {
         <nav className="hidden lg:flex items-center gap-6">
           <a href="#home" className="text-white/90 hover:text-[#156BFC] transition-colors">Find Work</a>
           <a href="#features" className="text-white/90 hover:text-[#156BFC] transition-colors">Post Job</a>
-          <a href="#how-it-works" className="text-white/90 hover:text-[#156BFC] transition-colors">About Us</a>
+          <a href="#how-it-works" className="text-white/90 hover:text-[#156BFC] transition-colors">How it works</a>
+          <Link to="/about" className="text-white/90 hover:text-[#156BFC] transition-colors">About Us</Link>
           <a href="#faq" className="text-white/90 hover:text-[#156BFC] transition-colors">Benefits</a>
         </nav>
       )}
