@@ -1,122 +1,124 @@
-import { Receipt } from "lucide-react";
+import { ReceiptText } from "lucide-react";
 
 export function RefundPolicy() {
   return (
-    <section id="refund-policy" className="py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+    <section id="refund-policy" className="py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-4xl">
-        <div className="mb-12">
-          <div className="flex items-center gap-3 mb-4">
-            <Receipt className="w-8 h-8 text-[#156BFC]" aria-hidden="true" />
-            <h1 className="text-gray-900 text-3xl md:text-5xl font-bold tracking-tight">Refund & Cancellation Policy</h1>
+        <div className="mb-10 lg:mb-16">
+          <div className="flex items-center gap-3 mb-2">
+            <ReceiptText className="w-8 h-8 md:w-10 md:h-10 text-[#156BFC]" aria-hidden="true" />
+            <h1 className="text-white text-3xl md:text-5xl font-bold tracking-tight">Refund Policy</h1>
           </div>
-          <p className="text-gray-500 text-sm md:text-base mt-2">Last Updated: November 27, 2025</p>
+          <p className="text-white/50 text-sm md:text-base mt-2">Last Updated: March 29, 2026</p>
         </div>
 
-        <div className="text-gray-700 text-base md:text-lg leading-relaxed flex flex-col gap-12">
+        <div className="text-white/70 text-base md:text-lg leading-relaxed flex flex-col gap-12">
           
-          <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-12">
-            This Refund & Cancellation Policy explains how cancellations work for both Employers and Service Providers, and how refunds (if any) are handled. Because Zoopol does not process payments internally, this policy focuses on job cancellations, direct payment disputes between users, and rating impacts.
+          <p className="text-lg md:text-xl text-white/70 leading-relaxed mb-12">
+            This Refund Policy explains how Zoopol ("we") handles payments, cancellations, and disputes on our Platform. Since Zoopol does not process payments internally, the following guidelines describe the responsibilities of both Jobs Posters (Employers) and Service Providers (Workers).
           </p>
           
-          <div id="payments-note" className="bg-gray-50 rounded-2xl p-6 md:p-8 lg:p-10 border border-gray-100 scroll-mt-24">
-            <h3 className="text-gray-900 text-xl md:text-2xl font-semibold mb-8">1. Important Note About Payments</h3>
-            <div className="space-y-10">
-              <ul className="list-disc marker:text-[#156BFC] pl-6 space-y-4">
-                <li className="pl-3 text-gray-600">Zoopol does not process payments within the Platform.</li>
-                <li className="pl-3 text-gray-600">Zoopol does not hold money, escrow funds, or issue refunds.</li>
-                <li className="pl-3 text-gray-600">Zoopol does not intervene in payment settlements between users.</li>
-              </ul>
-              <div>
-                <p className="mb-6 text-gray-600 font-medium">All payments are handled externally via cash, bank transfers, or third‑party payment apps.</p>
-                <ul className="list-disc marker:text-[#156BFC] pl-6 space-y-6">
-                  <li className="pl-3">
-                    <span className="font-bold text-gray-900 block mb-1">No Direct Refunds:</span>
-                    <span className="text-gray-600">Zoopol cannot issue refunds as we do not touch the money.</span>
-                  </li>
-                  <li className="pl-3">
-                    <span className="font-bold text-gray-900 block mb-1">Private Settlement:</span>
-                    <span className="text-gray-600">Refunds, payment disputes, or incorrect payment amounts must be settled privately between the Employer and Service Provider.</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div id="employer-cancellations" className="bg-gray-50 rounded-2xl p-6 md:p-8 lg:p-10 border border-gray-100 scroll-mt-24">
-            <h3 className="text-gray-900 text-xl md:text-2xl font-semibold mb-8">2. Employer Cancellations</h3>
-            <div className="space-y-10">
-              <div>
-                <h4 className="text-gray-900 text-lg font-bold mb-3">2.1 Free Cancellation Window</h4>
-                <p className="text-gray-600 mb-4">Employers may cancel a job up to 24 hours before the scheduled job start time without penalty.</p>
-                <ul className="list-disc marker:text-[#156BFC] pl-6 space-y-2">
-                  <li className="pl-3 text-gray-600">All accepted workers are notified automatically.</li>
-                  <li className="pl-3 text-gray-600">No rating penalties apply to the employer.</li>
-                  <li className="pl-3 text-gray-600">The job is removed from the active search list.</li>
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="text-gray-900 text-lg font-bold mb-3">2.2 Late Cancellations</h4>
-                <p className="text-gray-600 mb-4">Cancellations made less than 24 hours before job start:</p>
-                <ul className="list-disc marker:text-[#156BFC] pl-6 space-y-4">
-                  <li className="pl-3 text-gray-600">Will negatively affect the employer’s overall rating.</li>
-                  <li className="pl-3 text-gray-600">Workers may leave a public review on the profile.</li>
-                  <li className="pl-3 text-gray-600">Frequent late cancellations may lead to account suspension.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div id="worker-cancellations" className="bg-gray-50 rounded-2xl p-6 md:p-8 lg:p-10 border border-gray-100 scroll-mt-24">
-            <h3 className="text-gray-900 text-xl md:text-2xl font-semibold mb-8">3. Service Provider Cancellations</h3>
-            <div className="space-y-10">
-              <div>
-                <h4 className="text-gray-900 text-lg font-bold mb-3">3.1 Free Withdrawal</h4>
-                <p className="text-gray-600">Service Providers may withdraw from a job up to 24 hours before the job starts without any penalty or rating impact.</p>
-              </div>
-              
-              <div>
-                <h4 className="text-gray-900 text-lg font-bold mb-3">3.2 Late Withdrawal & No-Shows</h4>
-                <ul className="list-disc marker:text-[#156BFC] pl-6 space-y-6">
-                  <li className="pl-3">
-                    <span className="font-bold text-gray-900 block mb-1">Rating Impact:</span>
-                    <span className="text-gray-600">Cancelling within 24 hours will negatively impact your trustworthiness and worker rating.</span>
-                  </li>
-                  <li className="pl-3">
-                    <span className="font-bold text-gray-900 block mb-1">No-Show Tag:</span>
-                    <span className="text-gray-600">Failure to show up at the job location without cancellation (No-Show) results in severe rating damage and possible suspension.</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div id="refunds-disputes" className="bg-gray-50 rounded-2xl p-6 md:p-8 lg:p-10 border border-gray-100 scroll-mt-24">
-            <h3 className="text-gray-900 text-xl md:text-2xl font-semibold mb-8">4. Payment Refunds & Disputes</h3>
-            <div className="space-y-10">
-              <div>
-                <h4 className="text-gray-900 text-lg font-bold mb-3">4.1 No Financial Liability</h4>
-                <p className="text-gray-600">Zoopol cannot provide refunds, adjustments, or chargebacks. Users must settle money‑related disputes directly, including non‑payment or underpayment cases.</p>
-              </div>
-              
-              <div>
-                <h4 className="text-gray-900 text-lg font-bold mb-3">4.2 Tracking vs Guarantee</h4>
-                <p className="text-gray-600">The app's payment tracking feature is for record‑keeping only. It does not act as a financial guarantee or legal proof of payment.</p>
-              </div>
-            </div>
-          </div>
-
-          <div id="dispute-resolution" className="bg-gray-50 rounded-2xl p-6 md:p-8 lg:p-10 border border-gray-100 scroll-mt-24">
-            <h3 className="text-gray-900 text-xl md:text-2xl font-semibold mb-6">5. Dispute Resolution</h3>
-            <p className="text-gray-600">
-              As a marketplace, Zoopol does not mediate financial disputes or force either party to pay. We may review chat logs and verification data to assist in investigations of system abuse, but final payment outcomes are the responsibility of the users.
+          <div id="no-internal-payments" className="bg-white/5 rounded-2xl p-6 md:p-8 lg:p-10 border border-white/10 scroll-mt-24 backdrop-blur-sm">
+            <h3 className="text-white text-xl md:text-2xl font-semibold mb-4">1. No Internal Payments</h3>
+            <p className="text-white/60 leading-relaxed">
+              Zoopol is a digital marketplace that connects people. All payments for services occur outside the Zoopol app—via cash, bank transfer, or third-party payment apps. Because we do not process, hold, or touch your money, Zoopol cannot issue direct refunds for service fees paid to workers.
             </p>
           </div>
 
-          <div className="pt-8 text-center text-sm text-gray-500">
+          <div id="commission-fees" className="bg-white/5 rounded-2xl p-6 md:p-8 lg:p-10 border border-white/10 scroll-mt-24 backdrop-blur-sm">
+            <h3 className="text-white text-xl md:text-2xl font-semibold mb-6">2. Commission & Platform Fees</h3>
+            <div className="space-y-10">
+              <div>
+                <h4 className="font-bold text-white mb-2">Commission Deductions:</h4>
+                <p className="text-white/60 leading-relaxed">
+                  Zoopol may charge a platform commission on completed jobs. This is deducted from the service provider's earnings and contributes to maintaining and improving the platform.
+                </p>
+              </div>
+              <div>
+                <h4 className="font-bold text-white mb-3">Refunds on Commission:</h4>
+                <p className="mb-4 text-white/60">Platform commission fees are generally non-refundable except in the following cases:</p>
+                <ul className="list-disc marker:text-[#156BFC] pl-6 space-y-3">
+                  <li className="pl-2 text-white/60">Technical errors resulting in double charging.</li>
+                  <li className="pl-2 text-white/60">Erroneous job status updates where a job was marked as complete but never occurred.</li>
+                  <li className="pl-2 text-white/60">Cases where the system fails to apply a relevant discount or promo.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div id="cancellations" className="bg-white/5 rounded-2xl p-6 md:p-8 lg:p-10 border border-white/10 scroll-mt-24 backdrop-blur-sm">
+            <h3 className="text-white text-xl md:text-2xl font-semibold mb-6">3. Cancellations & Disputes</h3>
+            <div className="space-y-10">
+              <div>
+                <h4 className="font-bold text-white mb-2">Pre-Job Cancellations:</h4>
+                <p className="text-white/60 leading-relaxed">
+                  Both employers and workers may cancel a job up to 24 hours before the scheduled start time without financial penalties.
+                </p>
+              </div>
+              <div>
+                <h4 className="font-bold text-white mb-2">Late Cancellations & No-Shows:</h4>
+                <p className="text-white/60 leading-relaxed">
+                  If an employer or worker cancels within 24 hours of the job, no automatic platform refund is issued. Users are encouraged to resolve any pre-payments directly between themselves.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div id="service-quality" className="bg-white/5 rounded-2xl p-6 md:p-8 lg:p-10 border border-white/10 scroll-mt-24 backdrop-blur-sm">
+            <h3 className="text-white text-xl md:text-2xl font-semibold mb-6">4. Service Quality & Performance</h3>
+            <div className="space-y-10">
+              <div>
+                <h4 className="font-bold text-white mb-2">Worker Performance:</h4>
+                <p className="text-white/60 leading-relaxed">
+                  Zoopol does not guarantee the quality of work. If an employer is unhappy with the service, they must negotiate a partial payment or refund directly with the worker before the job is finalized in the app.
+                </p>
+              </div>
+              <div>
+                <h4 className="font-bold text-white mb-2">Verification PINs:</h4>
+                <p className="text-white/60 leading-relaxed">
+                  Using the unique PIN for job start and completion is the best way to prevent payment disputes. Do not share your PIN or verify completion until you are satisfied with the arrangement.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div id="dispute-role" className="bg-white/5 rounded-2xl p-6 md:p-8 lg:p-10 border border-white/10 scroll-mt-24 backdrop-blur-sm">
+            <h3 className="text-white text-xl md:text-2xl font-semibold mb-4">5. Zoopol's Role in Disputes</h3>
+            <p className="text-white/60 leading-relaxed">
+              While we cannot force a user to pay or refund money, we may investigate reports of fraud, non-payment, or no-shows. If a user is found to be consistently violating our Terms of Service, their account may be suspended or removed from the Platform.
+            </p>
+          </div>
+
+          <div id="how-to-request" className="bg-white/5 rounded-2xl p-6 md:p-8 lg:p-10 border border-white/10 scroll-mt-24 backdrop-blur-sm">
+            <h3 className="text-white text-xl md:text-2xl font-semibold mb-4">6. How to Request Help</h3>
+            <p className="mb-4 text-white/60">If you believe there has been a technical error regarding platform fees or a fraudulent user interaction, please:</p>
+            <ul className="list-disc marker:text-[#156BFC] pl-6 space-y-3 mb-6">
+              <li className="pl-2 text-white/60">Go to the "Help & Support" section in the Zoopol app.</li>
+              <li className="pl-2 text-white/60">Provide the Job ID and a clear description of the issue.</li>
+              <li className="pl-2 text-white/60">Attach any relevant screenshots or proof of communication.</li>
+            </ul>
+            <p className="text-white/60 leading-relaxed">
+              We aim to review all support requests within 48-72 hours.
+            </p>
+          </div>
+
+          <div id="changes" className="bg-white/5 rounded-2xl p-6 md:p-8 lg:p-10 border border-white/10 scroll-mt-24 backdrop-blur-sm">
+            <h3 className="text-white text-xl md:text-2xl font-semibold mb-4">7. Changes to This Policy</h3>
+            <p className="text-white/60 leading-relaxed">
+              We may update this Refund Policy to reflect changes in our fees or platform features. Users will be notified of major changes through in-app updates.
+            </p>
+          </div>
+
+          <div className="pt-8 mt-12 text-center text-sm text-white/50">
             <p>
-              For questions about this policy, please contact us via in-app support.
+              For any further questions, please contact our support team via the app.
             </p>
+            <button 
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="mt-6 text-[#156BFC] hover:underline transition-colors font-medium cursor-pointer bg-transparent border-none inline-flex items-center gap-1"
+            >
+              Back to top ↑
+            </button>
           </div>
         </div>
       </div>

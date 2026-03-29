@@ -1,53 +1,110 @@
 import { motion } from 'motion/react';
-import { Button } from './ui/button';
 import appStoreButtons from 'figma:asset/ba3ea06de21fd32944af108b203e16e4e384730b.png';
 
 export function FinalCTA() {
   return (
-    <section className="py-8 px-4 sm:px-6 lg:px-8">
-      <div className="container mx-auto">
-        <div className="bg-gray-900 rounded-[32px] md:rounded-[40px] p-6 md:p-8 lg:p-16 relative overflow-hidden">
-          {/* Decorative lines */}
-          <svg className="absolute top-1/2 left-0 w-full h-full pointer-events-none opacity-30" style={{ transform: 'translateY(-50%)' }}>
-            <path d="M 100 200 Q 300 150, 500 200" stroke="#156BFC" strokeWidth="3" fill="none" opacity="0.3"/>
-            <path d="M 200 100 Q 400 50, 600 100" stroke="#156BFC" strokeWidth="3" fill="none" opacity="0.3"/>
-          </svg>
+    <section className="relative w-full py-32 md:py-48 lg:py-56 overflow-hidden flex items-center justify-center"
+      style={{ background: '#050505' }}
+    >
+      {/* Background Image Layer — heavily dimmed */}
+      <div className="absolute inset-0" style={{ opacity: 0.15 }}>
+        <img 
+          src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=2070&auto=format&fit=crop" 
+          alt="Office background" 
+          className="w-full h-full object-cover"
+        />
+      </div>
 
-          <div className="relative z-10 text-center max-w-4xl mx-auto">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-white mb-4 md:mb-6 text-3xl md:text-4xl lg:text-5xl"
-            >
-              Simple jobs. Trusted workers. Fast payments.
-            </motion.h2>
-            
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-white/80 mb-8 md:mb-10 max-w-2xl mx-auto text-base md:text-lg px-4"
-              style={{ fontSize: '16px' }}
-            >
-              Your work and your workforce — managed in one place.
-            </motion.p>
+      {/* Gradient overlays for smooth blending */}
+      <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, #050505, transparent 30%, transparent 70%, #050505)' }} />
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex justify-center items-center"
+      {/* Subtle cyan glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vw] rounded-full pointer-events-none" 
+        style={{ background: '#00E5FF', opacity: 0.04, filter: 'blur(120px)' }} 
+      />
+
+      <div className="relative z-10 w-full max-w-4xl mx-auto px-6 sm:px-8 text-center flex flex-col items-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="w-full"
+        >
+          <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter mb-6" style={{ lineHeight: 1.1 }}>
+            Ready to get <br className="hidden md:block"/>
+            <span style={{ background: 'linear-gradient(to right, #00E5FF, #3B82F6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>to work?</span>
+          </h2>
+          
+          <p className="mb-14 max-w-2xl mx-auto text-lg md:text-xl font-medium" style={{ color: '#9CA3AF', lineHeight: 1.7 }}>
+            Join thousands of businesses and verified professionals already using Zoopol to connect, collaborate, and grow.
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
+            {/* Primary — Vibrant Gradient */}
+            <motion.a
+              href="#"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '10px',
+                whiteSpace: 'nowrap' as const,
+                padding: '16px 40px',
+                borderRadius: '999px',
+                background: 'linear-gradient(135deg, #00E5FF 0%, #3B82F6 100%)',
+                color: '#050505',
+                fontWeight: 800,
+                fontSize: '18px',
+                boxShadow: '0 0 40px rgba(0, 229, 255, 0.5), 0 0 80px rgba(0, 229, 255, 0.15), 0 4px 20px rgba(0, 0, 0, 0.3)',
+                textDecoration: 'none',
+                transition: 'all 0.3s ease',
+              }}
+              whileHover={{ scale: 1.05, boxShadow: '0 0 60px rgba(0, 229, 255, 0.7), 0 0 100px rgba(0, 229, 255, 0.25)' }}
+              whileTap={{ scale: 0.97 }}
             >
-              <a href="#" className="hover:opacity-80 transition-opacity">
-                <img src={appStoreButtons} alt="Download on App Store and Google Play" className="h-12 md:h-14" />
-              </a>
-            </motion.div>
+              Hire a Pro Now
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </motion.a>
+
+            {/* Secondary — Glass */}
+            <motion.a
+              href="#"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '10px',
+                whiteSpace: 'nowrap' as const,
+                padding: '16px 40px',
+                borderRadius: '999px',
+                background: 'rgba(255, 255, 255, 0.08)',
+                backdropFilter: 'blur(20px)',
+                WebkitBackdropFilter: 'blur(20px)',
+                color: '#FFFFFF',
+                fontWeight: 800,
+                fontSize: '18px',
+                border: '1.5px solid rgba(255, 255, 255, 0.3)',
+                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.08)',
+                textDecoration: 'none',
+                transition: 'all 0.3s ease',
+              }}
+              whileHover={{ scale: 1.05, background: 'rgba(255, 255, 255, 0.18)', borderColor: 'rgba(255, 255, 255, 0.5)' }}
+              whileTap={{ scale: 0.97 }}
+            >
+              Become a Worker
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </motion.a>
           </div>
-        </div>
+
+          {/* App Store Badges */}
+          <div className="mt-14 flex justify-center items-center">
+            <a href="#" style={{ transition: 'opacity 0.3s' }} onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.8')} onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}>
+              <img src={appStoreButtons} alt="Download on App Store and Google Play" className="h-12 md:h-14" />
+            </a>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,64 +1,129 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { ImageWithFallback } from './figma/ImageWithFallback';
+import { Rocket, BadgeCheck, Lock, Search, CircleDollarSign, CreditCard, type LucideIcon } from 'lucide-react';
 
-interface Feature {
-  imageUrl: string;
+export interface Feature {
+  icon: LucideIcon;
   title: string;
   description: string;
-  bgColor: string;
 }
 
 const features: Feature[] = [
   {
-    imageUrl: 'https://images.unsplash.com/photo-1516850228053-a807778c4e0f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHwzZCUyMGljb24lMjByb2NrZXQlMjBzcGVlZHxlbnwxfHx8fDE3NjMzMDY5NTd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    icon: Rocket,
     title: 'Fast Job Posting',
     description: 'Create a job in under a minute with clear details and budget.',
-    bgColor: 'bg-[#E3F2FD]'
   },
   {
-    imageUrl: 'https://images.unsplash.com/photo-1642364706738-1334b13c66a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHwzZCUyMGljb24lMjBjaGVja21hcmslMjB2ZXJpZmllZHxlbnwxfHx8fDE3NjMzMDY5NTd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    icon: BadgeCheck,
     title: 'Verified Workers',
     description: 'Choose from profiles with skill tags and ratings you can trust.',
-    bgColor: 'bg-[#E3F2FD]'
   },
   {
-    imageUrl: 'https://images.unsplash.com/photo-1696013910376-c56f76dd8178?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHwzZCUyMGljb24lMjBsb2NrJTIwc2VjdXJpdHl8ZW58MXx8fHwxNzYzMzA2OTU3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    icon: Lock,
     title: 'Secure Payments',
     description: 'All payments are protected and transparent throughout the process.',
-    bgColor: 'bg-[#E3F2FD]'
   },
   {
-    imageUrl: 'https://images.unsplash.com/photo-1642364706738-1334b13c66a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHwzZCUyMGljb24lMjBzZWFyY2glMjBtYWduaWZ5aW5nfGVufDF8fHx8MTc2MzMwNjk1OHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    icon: Search,
     title: 'Find Jobs Instantly',
     description: 'Browse jobs matched to your skills and availability.',
-    bgColor: 'bg-[#E3F2FD]'
   },
   {
-    imageUrl: 'https://images.unsplash.com/photo-1622191020772-48880b6f1468?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHwzZCUyMGljb24lMjBtb25leSUyMGRvbGxhcnxlbnwxfHx8fDE3NjMzMDY5NTh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    icon: CircleDollarSign,
     title: 'Set Your Own Rates',
     description: 'Full flexibility to price your services and negotiate terms.',
-    bgColor: 'bg-[#E3F2FD]'
   },
   {
-    imageUrl: 'https://images.unsplash.com/photo-1658842244540-883aff68fb78?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHwzZCUyMGljb24lMjBjcmVkaXQlMjBjYXJkfGVufDF8fHx8MTc2MzMwNjk1OHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    icon: CreditCard,
     title: 'Guaranteed Payments',
     description: 'Get paid immediately after completing your work.',
-    bgColor: 'bg-[#E3F2FD]'
-  }
+  },
 ];
 
-export function Features() {
+function useTouchDevice() {
+  const [isTouch, setIsTouch] = useState(false);
+  useEffect(() => {
+    setIsTouch('ontouchstart' in window || navigator.maxTouchPoints > 0);
+  }, []);
+  return isTouch;
+}
+
+/**
+ * FeatureCard: two layers for hover (desktop) or tap (touch) to reveal.
+ * - Touch devices: tap toggles this card's content; multiple cards can stay revealed.
+ * - Desktop: hover/focus reveals; leave/blur hides.
+ */
+function FeatureCard({ feature, isTouchDevice }: { feature: Feature; isTouchDevice: boolean }) {
+  const Icon = feature.icon;
+  const [revealed, setRevealed] = useState(false);
+  const handleTap = () => {
+    if (isTouchDevice) setRevealed((prev) => !prev);
+  };
   return (
-    <section id="features" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-[280px] md:min-h-[300px]">
+      <div
+        className={`group relative min-h-[280px] md:min-h-[300px] overflow-hidden rounded-3xl border border-white/10 bg-[#0A0F1C] shadow-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,229,255,0.1)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00E5FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] ${revealed ? 'revealed' : ''}`}
+        tabIndex={0}
+        role="button"
+        aria-expanded={revealed}
+        onClick={handleTap}
+        onKeyDown={(e) => {
+          if (isTouchDevice && (e.key === 'Enter' || e.key === ' ')) {
+            e.preventDefault();
+            setRevealed((prev) => !prev);
+          }
+        }}
+        onMouseEnter={() => !isTouchDevice && setRevealed(true)}
+        onMouseLeave={() => !isTouchDevice && setRevealed(false)}
+        onFocus={() => !isTouchDevice && setRevealed(true)}
+        onBlur={() => !isTouchDevice && setRevealed(false)}
+      >
+        {/* Big Icon Layer: desktop default; fades out + scale when revealed. */}
+        <div
+          className="feature-card-big-icon absolute inset-0 flex items-center justify-center bg-[#0A0F1C] opacity-0 transition-opacity duration-300 ease-in-out md:opacity-100 md:group-[.revealed]:opacity-0"
+          aria-hidden="true"
+        >
+          <div className="feature-card-big-icon-inner transition-transform duration-300 ease-in-out md:group-[.revealed]:scale-95 drop-shadow-[0_0_15px_rgba(0,229,255,0.3)]">
+            <Icon className="w-16 h-16 md:w-20 md:h-20 text-[#00E5FF]" />
+          </div>
+        </div>
+        {/* Content Layer: always visible on mobile; on desktop visible when revealed. */}
+        <div
+          className="feature-card-content relative flex min-h-[280px] md:min-h-[300px] flex-col items-center justify-center p-6 md:p-8 opacity-100 transition-opacity duration-300 ease-in-out md:opacity-0 md:group-[.revealed]:opacity-100"
+        >
+          <div className="mb-4 md:mb-6 flex justify-center">
+            <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-[#00E5FF]/10 flex items-center justify-center border border-[#00E5FF]/20">
+              <Icon className="w-8 h-8 md:w-10 md:h-10 text-[#00E5FF]" />
+            </div>
+          </div>
+          <h3 className="text-white mb-2 md:mb-3 text-center font-semibold text-xl">
+            {feature.title}
+          </h3>
+          <p className="text-gray-400 text-center text-base">
+            {feature.description}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function Features() {
+  const isTouchDevice = useTouchDevice();
+  return (
+    <section
+      id="features"
+      className={`py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-[#050505] ${isTouchDevice ? 'features-touch' : ''}`}
+    >
       <div className="container mx-auto">
-        {/* Section Title */}
         <div className="text-center mb-12 md:mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-gray-900 mb-4"
+            className="text-white mb-4 font-extrabold"
           >
             Why Choose Zoopol
           </motion.h2>
@@ -67,40 +132,15 @@ export function Features() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-gray-600 max-w-2xl mx-auto px-4"
-            style={{ fontSize: '18px' }}
+            className="text-gray-400 max-w-2xl mx-auto px-4 text-lg"
           >
             Built for Job Posters and Workers to connect effortlessly.
           </motion.p>
         </div>
 
-        {/* Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group"
-            >
-              <div className={`${feature.bgColor} rounded-3xl p-6 md:p-8 h-full transition-transform duration-300 hover:scale-105`}>
-                <div className="mb-4 md:mb-6">
-                  <ImageWithFallback 
-                    src={feature.imageUrl}
-                    alt={feature.title}
-                    className="w-20 h-20 md:w-24 md:h-24 object-contain mx-auto"
-                  />
-                </div>
-                <h3 className="text-gray-900 mb-2 md:mb-3 text-center">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600 text-center text-sm md:text-base" style={{ fontSize: '16px' }}>
-                  {feature.description}
-                </p>
-              </div>
-            </motion.div>
+            <FeatureCard key={index} feature={feature} isTouchDevice={isTouchDevice} />
           ))}
 
           {/* CTA Card */}
@@ -109,13 +149,14 @@ export function Features() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.6 }}
-            className="md:col-span-2 lg:col-span-3"
+            className="md:col-span-2 lg:col-span-3 mt-4"
           >
-            <div className="bg-[#156BFC]/25 rounded-3xl p-8 flex flex-col items-center justify-center text-center">
-              <h3 className="text-gray-900 mb-4">
+            <div className="bg-[#0A0F1C] border border-white/10 rounded-3xl p-8 flex flex-col items-center justify-center text-center relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#00E5FF]/0 via-[#00E5FF]/5 to-[#00E5FF]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <h3 className="text-white mb-4 font-bold text-2xl relative z-10">
                 We Help Your Work Get Done
               </h3>
-              <p className="text-gray-600" style={{ fontSize: '18px' }}>
+              <p className="text-gray-400 text-lg relative z-10 max-w-3xl">
                 From short tasks to day-long jobs, thousands of businesses and households trust Zoopol to hire dependable workers instantly.
               </p>
             </div>

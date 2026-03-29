@@ -362,35 +362,35 @@
   }
 
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 218 98% 54%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 218 98% 54%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 218 98% 54%;
-    --radius: 1rem;
+    --background: 240 10% 4%;
+    --foreground: 0 0% 100%;
+    --card: 240 10% 6%;
+    --card-foreground: 0 0% 100%;
+    --popover: 240 10% 4%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 186 100% 50%;
+    --primary-foreground: 240 10% 4%;
+    --secondary: 240 10% 12%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 240 10% 12%;
+    --muted-foreground: 240 5% 65%;
+    --accent: 186 100% 50%;
+    --accent-foreground: 240 10% 4%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 10% 12%;
+    --input: 240 10% 12%;
+    --ring: 186 100% 50%;
+    --radius: 2rem;
   }
 
   * {
-    border-color: oklch(.922 0 0);
+    border-color: hsl(var(--border));
   }
 
   body {
-    background-color: oklch(1 0 0);
-    color: oklch(.145 0 0);
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
     font-family: Manrope, sans-serif;
   }
 
@@ -2166,6 +2166,191 @@
   to {
     height: 0;
   }
+}
+
+/* Feature card: at md+ (desktop) default = big icon only; hover (.revealed) = content only */
+@media (min-width: 768px) {
+  .group .feature-card-big-icon {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+  }
+  .group .feature-card-big-icon .feature-card-big-icon-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .group .feature-card-big-icon svg {
+    width: 5rem;
+    height: 5rem;
+  }
+  .group .feature-card-content {
+    opacity: 0;
+  }
+  .group.revealed .feature-card-big-icon {
+    opacity: 0;
+  }
+  .group.revealed .feature-card-big-icon-inner {
+    transform: scale(0.95);
+  }
+  .group.revealed .feature-card-content {
+    opacity: 1;
+  }
+}
+
+/* Touch devices: same two-state (big icon default, tap to reveal) at any viewport so responsive shows tap behaviour */
+.features-touch .group .feature-card-big-icon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+}
+.features-touch .group .feature-card-big-icon .feature-card-big-icon-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.features-touch .group .feature-card-big-icon svg {
+  width: 5rem;
+  height: 5rem;
+}
+.features-touch .group .feature-card-content {
+  opacity: 0;
+}
+.features-touch .group.revealed .feature-card-big-icon {
+  opacity: 0;
+}
+.features-touch .group.revealed .feature-card-big-icon-inner {
+  transform: scale(0.95);
+}
+.features-touch .group.revealed .feature-card-content {
+  opacity: 1;
+}
+
+/* ===================================================================
+   Custom responsive utilities for V2 refactor
+   Since Tailwind CSS v4 is pre-compiled, new responsive classes must
+   be added manually. Breakpoints match Tailwind v4 defaults:
+   sm: 40rem (640px), md: 48rem (768px), lg: 64rem (1024px),
+   xl: 80rem (1280px), 2xl: 96rem (1536px)
+   =================================================================== */
+
+.auto-rows-\[320px\] { grid-auto-rows: 320px !important; }
+
+/* --- md breakpoint (>= 48rem / 768px) --- */
+@media (width >= 48rem) {
+  .md\:flex { display: flex !important; }
+  .md\:grid { display: grid !important; }
+  .md\:hidden { display: none !important; }
+  .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+  .md\:col-span-2 { grid-column: span 2 / span 2 !important; }
+  .md\:col-span-1 { grid-column: span 1 / span 1 !important; }
+  .md\:auto-rows-\[380px\] { grid-auto-rows: 380px !important; }
+  .md\:grid-cols-\[1\.2fr_1fr\] { grid-template-columns: 1.2fr 1fr; }
+  .md\:items-start { align-items: flex-start !important; }
+  .md\:text-left { text-align: left !important; }
+  .md\:justify-start { justify-content: flex-start !important; }
+  .md\:gap-4 { gap: 1rem !important; }
+  .md\:gap-16 { gap: 4rem !important; }
+  .md\:mt-0 { margin-top: 0 !important; }
+  .md\:mt-12 { margin-top: 3rem !important; }
+  .md\:mb-16 { margin-bottom: 4rem !important; }
+  .md\:pt-8 { padding-top: 2rem !important; }
+  .md\:px-8 { padding-left: 2rem !important; padding-right: 2rem !important; }
+  .md\:mx-0 { margin-left: 0 !important; margin-right: 0 !important; }
+  .md\:text-7xl { font-size: 4.5rem !important; line-height: 1 !important; }
+  .md\:text-8xl { font-size: 6rem !important; line-height: 1 !important; }
+  .md\:text-xl { font-size: 1.25rem !important; line-height: 1.75rem !important; }
+  .md\:text-4xl { font-size: 2.25rem !important; line-height: 2.5rem !important; }
+  .md\:text-5xl { font-size: 3rem !important; line-height: 1 !important; }
+  .md\:leading-relaxed { line-height: 1.625 !important; }
+  .md\:h-8 { height: 2rem !important; }
+  .md\:h-14 { height: 3.5rem !important; }
+  .md\:p-8 { padding: 2rem !important; }
+  .md\:py-48 { padding-top: 12rem !important; padding-bottom: 12rem !important; }
+  .md\:text-7xl { font-size: 4.5rem !important; line-height: 1 !important; }
+  .md\:rounded-\[40px\] { border-radius: 40px !important; }
+  .md\:mb-6 { margin-bottom: 1.5rem !important; }
+  .md\:mb-10 { margin-bottom: 2.5rem !important; }
+  .md\:py-20 { padding-top: 5rem !important; padding-bottom: 5rem !important; }
+  .md\:block { display: block !important; }
+  .md\:w-\[40vw\] { width: 40vw !important; }
+  .md\:h-\[40vw\] { height: 40vw !important; }
+}
+
+/* --- lg breakpoint (>= 64rem / 1024px) --- */
+@media (width >= 64rem) {
+  .lg\:flex { display: flex !important; }
+  .lg\:grid { display: grid !important; }
+  .lg\:hidden { display: none !important; }
+  .lg\:grid-cols-\[1\.2fr_1fr\] { grid-template-columns: 1.2fr 1fr; }
+  .lg\:flex-row { flex-direction: row !important; }
+  .lg\:items-start { align-items: flex-start !important; }
+  .lg\:text-left { text-align: left !important; }
+  .lg\:justify-start { justify-content: flex-start !important; }
+  .lg\:gap-8 { gap: 2rem !important; }
+  .lg\:gap-16 { gap: 4rem !important; }
+  .lg\:gap-24 { gap: 6rem !important; }
+  .lg\:mt-0 { margin-top: 0 !important; }
+  .lg\:mx-6 { margin-left: 1.5rem !important; margin-right: 1.5rem !important; }
+  .lg\:ml-0 { margin-left: 0 !important; }
+  .lg\:mb-0 { margin-bottom: 0 !important; }
+  .lg\:px-8 { padding-left: 2rem !important; padding-right: 2rem !important; }
+  .lg\:p-16 { padding: 4rem !important; }
+  .lg\:pl-12 { padding-left: 3rem !important; }
+  .lg\:text-\[5\.5rem\] { font-size: 5.5rem !important; line-height: 1 !important; }
+  .lg\:text-\[7rem\] { font-size: 7rem !important; line-height: 1 !important; }
+  .lg\:text-4xl { font-size: 2.25rem !important; line-height: 2.5rem !important; }
+  .lg\:text-5xl { font-size: 3rem !important; line-height: 1 !important; }
+  .lg\:text-6xl { font-size: 3.75rem !important; line-height: 1 !important; }
+  .lg\:text-8xl { font-size: 6rem !important; line-height: 1 !important; }
+  .lg\:min-h-\[700px\] { min-height: 700px !important; }
+  .lg\:min-h-\[60vh\] { min-height: 60vh !important; }
+  .lg\:h-\[75vh\] { height: 75vh !important; }
+  .lg\:w-1\/2 { width: 50% !important; }
+  .lg\:py-32 { padding-top: 8rem !important; padding-bottom: 8rem !important; }
+  .lg\:py-64 { padding-top: 16rem !important; padding-bottom: 16rem !important; }
+  .lg\:-left-12 { left: -3rem !important; }
+  .lg\:-right-12 { right: -3rem !important; }
+  .lg\:order-last { order: 9999 !important; }
+  .lg\:block { display: block !important; }
+  .lg\:relative { position: relative !important; }
+}
+
+/* --- xl breakpoint (>= 80rem / 1280px) --- */
+@media (width >= 80rem) {
+  .xl\:text-8xl { font-size: 6rem !important; line-height: 1 !important; }
+  .xl\:text-\[8rem\] { font-size: 8rem !important; line-height: 1 !important; }
+}
+
+/* --- 2xl breakpoint (>= 96rem / 1536px) --- */
+@media (width >= 96rem) {
+  .\32xl\:text-\[9rem\] { font-size: 9rem !important; line-height: 1 !important; }
+}
+
+/* --- sm breakpoint (>= 40rem / 640px) --- */
+@media (width >= 40rem) {
+  .sm\:flex { display: flex !important; }
+  .sm\:hidden { display: none !important; }
+  .sm\:inline { display: inline !important; }
+  .sm\:flex-none { flex: none !important; }
+  .sm\:flex-row { flex-direction: row !important; }
+  .sm\:gap-4 { gap: 1rem !important; }
+  .sm\:gap-6 { gap: 1.5rem !important; }
+  .sm\:px-0 { padding-left: 0 !important; padding-right: 0 !important; }
+  .sm\:px-6 { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
+  .sm\:px-8 { padding-left: 2rem !important; padding-right: 2rem !important; }
+  .sm\:py-3\.5 { padding-top: 0.875rem !important; padding-bottom: 0.875rem !important; }
+  .sm\:w-auto { width: auto !important; }
+  .sm\:text-base { font-size: 1rem !important; line-height: 1.5rem !important; }
+  .sm\:text-7xl { font-size: 4.5rem !important; line-height: 1 !important; }
+  .sm\:text-4xl { font-size: 2.25rem !important; line-height: 2.5rem !important; }
+  .sm\:max-w-none { max-width: none !important; }
 }
 
 /* Missing Legal Styles */
