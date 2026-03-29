@@ -19,7 +19,8 @@ export default function Header() {
           <nav className="hidden md:flex items-center gap-6 lg:gap-8 px-6 lg:px-8 border-l border-r border-white/10 mx-4 lg:mx-6">
             <a href="#home" className="text-sm text-white/70 hover:text-white font-medium transition-colors whitespace-nowrap">Find Work</a>
             <a href="#features" className="text-sm text-white/70 hover:text-white font-medium transition-colors whitespace-nowrap">Post Job</a>
-            <a href="#how-it-works" className="text-sm text-white/70 hover:text-white font-medium transition-colors whitespace-nowrap">About Us</a>
+            <a href="#how-it-works" className="text-white/90 hover:text-[#156BFC] transition-colors">How it works</a>
+          <Link to="/about" className="text-sm text-white/70 hover:text-white font-medium transition-colors whitespace-nowrap">About Us</Link>
             <a href="#faq" className="text-sm text-white/70 hover:text-white font-medium transition-colors whitespace-nowrap">Benefits</a>
           </nav>
         )}

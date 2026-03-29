@@ -19,8 +19,17 @@ export function Footer() {
 
           {/* Copyright and Links */}
           <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 text-gray-400 text-sm md:text-base text-center">
-            <span>© 2025 Zoopol. All rights reserved.</span>
+            <div className="flex flex-col text-center md:text-left gap-1">
+              <span>Zoopol is owned and operated by Ocean Point Private Limited.</span>
+              <span>© 2026 Ocean Point Private Limited. All rights reserved.</span>
+            </div>
             <div className="flex items-center gap-4 md:gap-6">
+              <Link
+                to="/about"
+                className="hover:text-white transition-colors"
+              >
+                About Us
+              </Link>
               <Link
                 to="/privacy-policy"
                 className="hover:text-white transition-colors"

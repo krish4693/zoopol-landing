@@ -2352,3 +2352,17 @@
   .sm\:text-4xl { font-size: 2.25rem !important; line-height: 2.5rem !important; }
   .sm\:max-w-none { max-width: none !important; }
 }
+
+/* Missing Legal Styles */
+.list-disc { list-style-type: disc !important; }
+.pl-6 { padding-left: 1.5rem !important; }
+.space-y-4 > :not([hidden]) ~ :not([hidden]) { margin-top: 1rem !important; }
+.marker\:text-\[\#156BFC\]::marker { color: #156BFC !important; }
+
+
+/* Additional Refund Policy Specific Styles */
+#refund-policy ul.list-disc { list-style-type: disc !important; }
+#refund-policy .pl-6 { padding-left: 1.5rem !important; }
+#refund-policy .space-y-4 > :not([hidden]) ~ :not([hidden]) { margin-top: 1rem !important; }
+#refund-policy .space-y-6 > :not([hidden]) ~ :not([hidden]) { margin-top: 1.5rem !important; }
+
