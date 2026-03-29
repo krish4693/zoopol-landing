@@ -5,10 +5,15 @@ export default function TermsPage() {
   return (
     <>
       <Helmet>
-        <title>Terms & Conditions — Zoopol</title>
-        <meta name="description" content="Read the terms and conditions that govern your use of the Zoopol platform for posting and finding jobs." />
+        <title>Terms &amp; Conditions — Zoopol</title>
+        <meta
+          name="description"
+          content="Read the Terms & Conditions governing your use of Zoopol, a product of Ocean Point Private Limited."
+        />
       </Helmet>
-      <Terms />
+      <main>
+        <Terms />
+      </main>
     </>
   );
 }
