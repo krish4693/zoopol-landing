@@ -39,7 +39,7 @@ export function FAQ() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-white mb-4 font-extrabold"
+            className="text-slate-900 mb-4 font-extrabold"
           >
             FAQ
           </motion.h2>
@@ -48,7 +48,7 @@ export function FAQ() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-gray-400 max-w-2xl text-sm md:text-base font-medium"
+            className="text-slate-600 max-w-2xl text-sm md:text-base font-medium"
             style={{ fontSize: '16px' }}
           >
             If you have any questions, don't hesitate to reach out – we are always here for you! We will gladly explain anything and help you understand.
@@ -67,12 +67,12 @@ export function FAQ() {
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`}
-                className="bg-[#0A0F1C] border border-white/10 rounded-2xl px-4 md:px-6 transition-all data-[state=open]:shadow-[0_0_20px_rgba(0,229,255,0.1)] data-[state=open]:border-[#00E5FF]/30"
+                className="bg-white border border-gray-200 rounded-2xl px-4 md:px-6 transition-all data-[state=open]:shadow-md data-[state=open]:border-brand-indigo/30"
               >
-                <AccordionTrigger className="text-white hover:no-underline py-4 md:py-6 text-sm md:text-base text-left font-bold data-[state=open]:text-[#00E5FF]">
+                <AccordionTrigger className="text-slate-900 hover:no-underline py-4 md:py-6 text-sm md:text-base text-left font-bold data-[state=open]:text-brand-indigo">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-gray-400 pb-4 md:pb-6 text-sm md:text-base" style={{ fontSize: '16px' }}>
+                <AccordionContent className="text-slate-600 pb-4 md:pb-6 text-sm md:text-base" style={{ fontSize: '16px' }}>
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>

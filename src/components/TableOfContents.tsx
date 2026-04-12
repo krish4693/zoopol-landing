@@ -11,7 +11,7 @@ const TableOfContents: React.FC<{ items: TocItem[]; title?: string }> = ({ items
           <li key={item.id}>
             <a
               href={`#${item.id}`}
-              className="block text-sm text-gray-600 hover:text-[#156BFC] hover:font-medium transition-colors duration-200"
+              className="block text-sm text-gray-600 hover:text-brand-indigo hover:font-medium transition-colors duration-200"
             >
               {item.title}
             </a>

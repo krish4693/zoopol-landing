@@ -48,16 +48,16 @@ export function Marquee() {
   const row3Repeated = [...row3, ...row3, ...row3, ...row3, ...row3, ...row3];
 
   return (
-    <section className="w-full bg-[#050505] py-20 md:py-32 lg:py-48 border-y border-white/5 relative flex flex-col items-center justify-center min-h-screen overflow-hidden">
+    <section className="w-full bg-gray-50 py-20 md:py-32 lg:py-48 border-y border-gray-200 relative flex flex-col items-center justify-center min-h-screen overflow-hidden">
       
       {/* Heavy fading gradients for smooth entrance/exit of scrolling items */}
-      <div className="absolute inset-y-0 left-0 w-24 md:w-64 bg-gradient-to-r from-[#050505] via-[#050505]/80 to-transparent z-10 pointer-events-none" />
-      <div className="absolute inset-y-0 right-0 w-24 md:w-64 bg-gradient-to-l from-[#050505] via-[#050505]/80 to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-y-0 left-0 w-24 md:w-64 bg-gradient-to-r from-gray-50 via-gray-50/80 to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-y-0 right-0 w-24 md:w-64 bg-gradient-to-l from-gray-50 via-gray-50/80 to-transparent z-10 pointer-events-none" />
 
       {/* Massive Heading */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 md:mb-24 text-center relative z-20">
         <motion.p 
-          className="text-[#00E5FF] text-sm md:text-base font-bold tracking-widest uppercase mb-6"
+          className="text-brand-indigo text-sm md:text-base font-bold tracking-widest uppercase mb-6"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -65,7 +65,7 @@ export function Marquee() {
           An Entire Workforce At Your Fingertips
         </motion.p>
         <motion.h2 
-          className="text-4xl sm:text-4xl md:text-7xl lg:text-8xl font-black text-white uppercase tracking-tighter leading-[1.05] md:leading-[0.95]"
+          className="text-4xl sm:text-4xl md:text-7xl lg:text-8xl font-black text-slate-900 uppercase tracking-tighter leading-[1.05] md:leading-[0.95]"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -74,7 +74,7 @@ export function Marquee() {
           FIND TOP-RATED
           <br className="hidden md:block" />
           <span className="md:hidden"> </span>
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-[#00E5FF] to-blue-500">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-indigo via-indigo-400 to-blue-500">
             PROS FOR ANY JOB
           </span>
         </motion.h2>
@@ -95,9 +95,9 @@ export function Marquee() {
               return (
                 <div
                   key={i}
-                  className="flex items-center gap-3 px-6 py-4 md:py-5 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:border-[#00E5FF]/50 transition-all cursor-pointer shadow-lg backdrop-blur-sm whitespace-nowrap"
+                  className="flex items-center gap-3 px-6 py-4 md:py-5 rounded-full bg-white border border-gray-200 text-slate-700 hover:bg-gray-50 hover:border-brand-indigo/30 transition-all cursor-pointer shadow-sm whitespace-nowrap"
                 >
-                  <Icon className="w-5 h-5 md:w-6 md:h-6 text-[#00E5FF]" />
+                  <Icon className="w-5 h-5 md:w-6 md:h-6 text-brand-indigo" />
                   <span className="text-base md:text-xl font-bold tracking-wide">
                     {category.name}
                   </span>
@@ -119,9 +119,9 @@ export function Marquee() {
               return (
                 <div
                   key={i}
-                  className="flex items-center gap-3 px-6 py-4 md:py-5 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:border-[#00E5FF]/50 transition-all cursor-pointer shadow-lg backdrop-blur-sm whitespace-nowrap"
+                  className="flex items-center gap-3 px-6 py-4 md:py-5 rounded-full bg-white border border-gray-200 text-slate-700 hover:bg-gray-50 hover:border-brand-indigo/30 transition-all cursor-pointer shadow-sm whitespace-nowrap"
                 >
-                  <Icon className="w-5 h-5 md:w-6 md:h-6 text-blue-400" />
+                  <Icon className="w-5 h-5 md:w-6 md:h-6 text-indigo-400" />
                   <span className="text-base md:text-xl font-bold tracking-wide">
                     {category.name}
                   </span>
@@ -143,9 +143,9 @@ export function Marquee() {
               return (
                 <div
                   key={i}
-                  className="flex items-center gap-3 px-6 py-4 md:py-5 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:border-[#00E5FF]/50 transition-all cursor-pointer shadow-lg backdrop-blur-sm whitespace-nowrap"
+                  className="flex items-center gap-3 px-6 py-4 md:py-5 rounded-full bg-white border border-gray-200 text-slate-700 hover:bg-gray-50 hover:border-brand-indigo/30 transition-all cursor-pointer shadow-sm whitespace-nowrap"
                 >
-                  <Icon className="w-5 h-5 md:w-6 md:h-6 text-[#00E5FF]" />
+                  <Icon className="w-5 h-5 md:w-6 md:h-6 text-brand-indigo" />
                   <span className="text-base md:text-xl font-bold tracking-wide">
                     {category.name}
                   </span>
