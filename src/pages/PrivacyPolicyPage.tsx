@@ -6,9 +6,14 @@ export default function PrivacyPolicyPage() {
     <>
       <Helmet>
         <title>Privacy Policy — Zoopol</title>
-        <meta name="description" content="Learn how Zoopol collects, uses, and protects your personal information when you use our platform." />
+        <meta
+          name="description"
+          content="Learn how Zoopol by Ocean Point Private Limited collects, uses, and protects your personal information."
+        />
       </Helmet>
-      <PrivacyPolicy />
+      <main>
+        <PrivacyPolicy />
+      </main>
     </>
   );
 }
