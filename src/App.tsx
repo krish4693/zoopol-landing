@@ -5,7 +5,9 @@ import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsPage from './pages/TermsPage';
 import RefundPolicyPage from './pages/RefundPolicyPage';
 import ContactPage from './pages/ContactPage';
+import DeleteAccountPage from './pages/DeleteAccountPage';
 import Layout from './components/Layout';
+
 
 export default function App() {
   return (
@@ -17,7 +19,9 @@ export default function App() {
         <Route path="terms" element={<TermsPage />} />
         <Route path="refund-policy" element={<RefundPolicyPage />} />
         <Route path="contact" element={<ContactPage />} />
+        <Route path="delete-account" element={<DeleteAccountPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
+
       </Route>
     </Routes>
   );
