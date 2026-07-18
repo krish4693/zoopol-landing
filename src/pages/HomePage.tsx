@@ -278,7 +278,7 @@ export default function HomePage() {
               transition={{ duration: 0.8 }}
               className="flex flex-col items-center lg:items-start text-center lg:text-left"
             >
-              <motion.div
+              {/* <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
@@ -288,7 +288,7 @@ export default function HomePage() {
                   <Star className="w-4 h-4 fill-current" />
                   Trusted by thousands of users
                 </span>
-              </motion.div>
+              </motion.div> */}
 
               <h1 className={`text-3xl xs:text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'} leading-[1.1] px-2 w-full`}>
                 The Right People<br />
