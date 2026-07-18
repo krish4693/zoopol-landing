@@ -2,170 +2,170 @@ import { Shield } from "lucide-react";
 
 export function PrivacyPolicy() {
   return (
-    <section id="privacy-policy" className="py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
+    <section id="privacy-policy" className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
       <div className="container mx-auto max-w-4xl">
-        <div className="mb-10 lg:mb-16">
+        <div className="mb-10 lg:mb-14">
           <div className="flex items-center gap-3 mb-2">
-            <Shield className="w-8 h-8 md:w-10 md:h-10 text-[#156BFC]" aria-hidden="true" />
-            <h1 className="text-white text-3xl md:text-5xl font-bold tracking-tight">Privacy Policy</h1>
+            <Shield className="w-8 h-8 md:w-10 md:h-10 text-indigo-600 dark:text-indigo-400" aria-hidden="true" />
+            <h1 className="text-gray-900 dark:text-white text-3xl md:text-5xl font-bold tracking-tight">Privacy Policy</h1>
           </div>
-          <p className="text-white/50 text-sm md:text-base mt-2">Last Updated: March 29, 2026</p>
+          <p className="text-gray-500 dark:text-gray-400 text-sm md:text-base mt-2">Last Updated: March 29, 2026</p>
         </div>
 
-        <div className="text-white/70 text-base md:text-lg leading-relaxed flex flex-col gap-12">
+        <div className="text-gray-700 dark:text-gray-300 text-base md:text-lg leading-relaxed flex flex-col gap-8 md:gap-10">
           
-          <p className="text-lg md:text-xl text-white/70 leading-relaxed mb-12">
+          <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
             Welcome to Zoopol. We are committed to protecting your personal information and maintaining your trust. This Privacy Policy explains how we collect, use, disclose, and safeguard your data when you use our website, mobile application, and related services (the "Platform"). By creating an account, browsing jobs, posting jobs, or using any feature on Zoopol, you agree to the practices described in this Privacy Policy.
           </p>
           
-          <div id="info-we-collect" className="bg-white/5 rounded-2xl p-6 md:p-8 lg:p-10 border border-white/10 scroll-mt-24 backdrop-blur-sm">
-            <h3 className="text-white text-xl md:text-2xl font-semibold mb-4">1. Information We Collect</h3>
-            <p className="mb-6 text-white/60">We collect information to provide a safe, efficient, and personalized experience for both Job Posters (Employers) and Service Providers (Workers).</p>
-            <ul className="list-disc marker:text-[#156BFC] pl-6 space-y-6">
+          <div id="info-we-collect" className="bg-slate-50 dark:bg-slate-900/60 rounded-2xl p-6 md:p-8 lg:p-10 border border-gray-200 dark:border-gray-800 shadow-sm scroll-mt-24 backdrop-blur-sm transition-colors duration-300">
+            <h3 className="text-gray-900 dark:text-white text-xl md:text-2xl font-semibold mb-4">1. Information We Collect</h3>
+            <p className="mb-6 text-gray-600 dark:text-gray-400">We collect information to provide a safe, efficient, and personalized experience for both Job Posters (Employers) and Service Providers (Workers).</p>
+            <ul className="list-disc marker:text-indigo-600 dark:marker:text-indigo-400 pl-6 space-y-6">
               <li className="pl-3">
-                <span className="font-bold text-white block mb-1">Personal Information:</span>
-                <span className="text-white/60">name, phone number (with OTP verification), email address, profile photo, skills, preferences, experience (for workers), job category preferences (for posters), work history and job activity, and optional identity verification documents (e.g., government-issued ID).</span>
+                <span className="font-bold text-gray-900 dark:text-white block mb-1">Personal Information:</span>
+                <span className="text-gray-600 dark:text-gray-300">name, phone number (with OTP verification), email address, profile photo, skills, preferences, experience (for workers), job category preferences (for posters), work history and job activity, and optional identity verification documents (e.g., government-issued ID).</span>
               </li>
               <li className="pl-3">
-                <span className="font-bold text-white block mb-1">Location Information:</span>
-                <span className="text-white/60">your approximate or exact location (with permission) and job location details provided by posters. Location data is used for job matching and proximity-based recommendations.</span>
+                <span className="font-bold text-gray-900 dark:text-white block mb-1">Location Information:</span>
+                <span className="text-gray-600 dark:text-gray-300">your approximate or exact location (with permission) and job location details provided by posters. Location data is used for job matching and proximity-based recommendations.</span>
               </li>
               <li className="pl-3">
-                <span className="font-bold text-white block mb-1">Job-Related Data:</span>
-                <span className="text-white/60">job postings, applications, acceptance or rejection decisions, job slot requests, and PIN verification records to confirm job start and completion.</span>
+                <span className="font-bold text-gray-900 dark:text-white block mb-1">Job-Related Data:</span>
+                <span className="text-gray-600 dark:text-gray-300">job postings, applications, acceptance or rejection decisions, job slot requests, and PIN verification records to confirm job start and completion.</span>
               </li>
               <li className="pl-3">
-                <span className="font-bold text-white block mb-1">Communication Data:</span>
-                <span className="text-white/60">direct chats, group chats (for multi-vacancy jobs), and support conversations.</span>
+                <span className="font-bold text-gray-900 dark:text-white block mb-1">Communication Data:</span>
+                <span className="text-gray-600 dark:text-gray-300">direct chats, group chats (for multi-vacancy jobs), and support conversations.</span>
               </li>
               <li className="pl-3">
-                <span className="font-bold text-white block mb-1">Ratings & Reviews:</span>
-                <span className="text-white/60">after jobs are completed, both parties may rate and review each other.</span>
+                <span className="font-bold text-gray-900 dark:text-white block mb-1">Ratings & Reviews:</span>
+                <span className="text-gray-600 dark:text-gray-300">after jobs are completed, both parties may rate and review each other.</span>
               </li>
               <li className="pl-3">
-                <span className="font-bold text-white block mb-1">Device Information:</span>
-                <span className="text-white/60">mobile device model, operating system version, IP address, app performance analytics, and crash logs.</span>
+                <span className="font-bold text-gray-900 dark:text-white block mb-1">Device Information:</span>
+                <span className="text-gray-600 dark:text-gray-300">mobile device model, operating system version, IP address, app performance analytics, and crash logs.</span>
               </li>
               <li className="pl-3">
-                <span className="font-bold text-white block mb-1">Payment-Related Information:</span>
-                <span className="text-white/60">Zoopol does not process or store payments internally. We collect payment tracking data, payment status (e.g., pending or completed), and job completion confirmations to support transparency between users.</span>
-              </li>
-            </ul>
-          </div>
-
-          <div id="use-of-info" className="bg-white/5 rounded-2xl p-6 md:p-8 lg:p-10 border border-white/10 scroll-mt-24 backdrop-blur-sm">
-            <h3 className="text-white text-xl md:text-2xl font-semibold mb-4">2. How We Use Your Information</h3>
-            <ul className="list-disc marker:text-[#156BFC] pl-6 space-y-6">
-              <li className="pl-3">
-                <span className="font-bold text-white block mb-1">Provide & Improve the Platform:</span>
-                <span className="text-white/60">create and manage your account, enable job posting and applications, match workers to relevant jobs, and manage job requests, slots, and approvals.</span>
-              </li>
-              <li className="pl-3">
-                <span className="font-bold text-white block mb-1">Verify Identity & Ensure Safety:</span>
-                <span className="text-white/60">perform OTP verification, optional ID verification, and PIN verification at job start and completion.</span>
-              </li>
-              <li className="pl-3">
-                <span className="font-bold text-white block mb-1">Enable Communication:</span>
-                <span className="text-white/60">provide chat and group messaging and send in-app notifications about job activity.</span>
-              </li>
-              <li className="pl-3">
-                <span className="font-bold text-white block mb-1">Maintain Trust & Accountability:</span>
-                <span className="text-white/60">display ratings and reviews, track job history and performance, and analyze dispute cases when necessary.</span>
-              </li>
-              <li className="pl-3">
-                <span className="font-bold text-white block mb-1">Analytics & Improvements:</span>
-                <span className="text-white/60">monitor app performance to improve user experience and features.</span>
+                <span className="font-bold text-gray-900 dark:text-white block mb-1">Payment-Related Information:</span>
+                <span className="text-gray-600 dark:text-gray-300">Zoopol does not process or store payments internally. We collect payment tracking data, payment status (e.g., pending or completed), and job completion confirmations to support transparency between users.</span>
               </li>
             </ul>
           </div>
 
-          <div id="share-info" className="bg-white/5 rounded-2xl p-6 md:p-8 lg:p-10 border border-white/10 scroll-mt-24 backdrop-blur-sm">
-            <h3 className="text-white text-xl md:text-2xl font-semibold mb-4">3. How We Share Your Information</h3>
-            <p className="mb-6 text-white/60">We do not sell your personal data. We may share your information only in the following situations:</p>
-            <ul className="list-disc marker:text-[#156BFC] pl-6 space-y-6">
+          <div id="use-of-info" className="bg-slate-50 dark:bg-slate-900/60 rounded-2xl p-6 md:p-8 lg:p-10 border border-gray-200 dark:border-gray-800 shadow-sm scroll-mt-24 backdrop-blur-sm transition-colors duration-300">
+            <h3 className="text-gray-900 dark:text-white text-xl md:text-2xl font-semibold mb-4">2. How We Use Your Information</h3>
+            <ul className="list-disc marker:text-indigo-600 dark:marker:text-indigo-400 pl-6 space-y-6">
               <li className="pl-3">
-                <span className="font-bold text-white block mb-1">With Other Users:</span>
-                <span className="text-white/60">to enable hiring and job applications, we may share your name, profile details, ratings/reviews, and relevant contact information when necessary.</span>
+                <span className="font-bold text-gray-900 dark:text-white block mb-1">Provide & Improve the Platform:</span>
+                <span className="text-gray-600 dark:text-gray-300">create and manage your account, enable job posting and applications, match workers to relevant jobs, and manage job requests, slots, and approvals.</span>
               </li>
               <li className="pl-3">
-                <span className="font-bold text-white block mb-1">With Service Providers:</span>
-                <span className="text-white/60">we may work with analytics providers, identity verification partners, cloud hosting providers, and SMS/OTP providers. These partners are bound by strict confidentiality obligations.</span>
+                <span className="font-bold text-gray-900 dark:text-white block mb-1">Verify Identity & Ensure Safety:</span>
+                <span className="text-gray-600 dark:text-gray-300">perform OTP verification, optional ID verification, and PIN verification at job start and completion.</span>
               </li>
               <li className="pl-3">
-                <span className="font-bold text-white block mb-1">Legal Requirements:</span>
-                <span className="text-white/60">we may share information if required by law enforcement, court orders, or applicable government regulations.</span>
+                <span className="font-bold text-gray-900 dark:text-white block mb-1">Enable Communication:</span>
+                <span className="text-gray-600 dark:text-gray-300">provide chat and group messaging and send in-app notifications about job activity.</span>
+              </li>
+              <li className="pl-3">
+                <span className="font-bold text-gray-900 dark:text-white block mb-1">Maintain Trust & Accountability:</span>
+                <span className="text-gray-600 dark:text-gray-300">display ratings and reviews, track job history and performance, and analyze dispute cases when necessary.</span>
+              </li>
+              <li className="pl-3">
+                <span className="font-bold text-gray-900 dark:text-white block mb-1">Analytics & Improvements:</span>
+                <span className="text-gray-600 dark:text-gray-300">monitor app performance to improve user experience and features.</span>
               </li>
             </ul>
           </div>
 
-          <div id="security" className="bg-white/5 rounded-2xl p-6 md:p-8 lg:p-10 border border-white/10 scroll-mt-24 backdrop-blur-sm">
-            <h3 className="text-white text-xl md:text-2xl font-semibold mb-8">4. Data Security</h3>
-            <div className="space-y-10">
-              <p className="text-white/60 leading-relaxed">
+          <div id="share-info" className="bg-slate-50 dark:bg-slate-900/60 rounded-2xl p-6 md:p-8 lg:p-10 border border-gray-200 dark:border-gray-800 shadow-sm scroll-mt-24 backdrop-blur-sm transition-colors duration-300">
+            <h3 className="text-gray-900 dark:text-white text-xl md:text-2xl font-semibold mb-4">3. How We Share Your Information</h3>
+            <p className="mb-6 text-gray-600 dark:text-gray-400">We do not sell your personal data. We may share your information only in the following situations:</p>
+            <ul className="list-disc marker:text-indigo-600 dark:marker:text-indigo-400 pl-6 space-y-6">
+              <li className="pl-3">
+                <span className="font-bold text-gray-900 dark:text-white block mb-1">With Other Users:</span>
+                <span className="text-gray-600 dark:text-gray-300">to enable hiring and job applications, we may share your name, profile details, ratings/reviews, and relevant contact information when necessary.</span>
+              </li>
+              <li className="pl-3">
+                <span className="font-bold text-gray-900 dark:text-white block mb-1">With Service Providers:</span>
+                <span className="text-gray-600 dark:text-gray-300">we may work with analytics providers, identity verification partners, cloud hosting providers, and SMS/OTP providers. These partners are bound by strict confidentiality obligations.</span>
+              </li>
+              <li className="pl-3">
+                <span className="font-bold text-gray-900 dark:text-white block mb-1">Legal Requirements:</span>
+                <span className="text-gray-600 dark:text-gray-300">we may share information if required by law enforcement, court orders, or applicable government regulations.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div id="security" className="bg-slate-50 dark:bg-slate-900/60 rounded-2xl p-6 md:p-8 lg:p-10 border border-gray-200 dark:border-gray-800 shadow-sm scroll-mt-24 backdrop-blur-sm transition-colors duration-300">
+            <h3 className="text-gray-900 dark:text-white text-xl md:text-2xl font-semibold mb-6">4. Data Security</h3>
+            <div className="space-y-6">
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                 We take reasonable administrative, technical, and physical measures to protect your information from unauthorized access, loss, or theft.
               </p>
               <div>
-                <h4 className="font-bold text-white mb-2">Our security practices include:</h4>
-                <p className="text-white/60 leading-relaxed">
+                <h4 className="font-bold text-gray-900 dark:text-white mb-2">Our security practices include:</h4>
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                   Encryption of sensitive data, routine security audits, and access controls for our employees. However, no communication over the Internet or mobile networks is 100% secure. You use the Platform at your own risk.
                 </p>
               </div>
             </div>
           </div>
 
-          <div id="choices-rights" className="bg-white/5 rounded-2xl p-6 md:p-8 lg:p-10 border border-white/10 scroll-mt-24 backdrop-blur-sm">
-            <h3 className="text-white text-xl md:text-2xl font-semibold mb-4">5. Your Choices & Rights</h3>
-            <ul className="list-disc marker:text-[#156BFC] pl-6 space-y-6">
+          <div id="choices-rights" className="bg-slate-50 dark:bg-slate-900/60 rounded-2xl p-6 md:p-8 lg:p-10 border border-gray-200 dark:border-gray-800 shadow-sm scroll-mt-24 backdrop-blur-sm transition-colors duration-300">
+            <h3 className="text-gray-900 dark:text-white text-xl md:text-2xl font-semibold mb-4">5. Your Choices & Rights</h3>
+            <ul className="list-disc marker:text-indigo-600 dark:marker:text-indigo-400 pl-6 space-y-6">
               <li className="pl-3">
-                <span className="font-bold text-white block mb-1">Access, Update & Delete Data:</span>
-                <span className="text-white/60">you can update most profile information directly in the app. You may also request data deletion or account deactivation.</span>
+                <span className="font-bold text-gray-900 dark:text-white block mb-1">Access, Update & Delete Data:</span>
+                <span className="text-gray-600 dark:text-gray-300">you can update most profile information directly in the app. You may also request data deletion or account deactivation.</span>
               </li>
               <li className="pl-3">
-                <span className="font-bold text-white block mb-1">Opt-Out of Notifications:</span>
-                <span className="text-white/60">you can turn off push notifications in app settings or device settings.</span>
+                <span className="font-bold text-gray-900 dark:text-white block mb-1">Opt-Out of Notifications:</span>
+                <span className="text-gray-600 dark:text-gray-300">you can turn off push notifications in app settings or device settings.</span>
               </li>
               <li className="pl-3">
-                <span className="font-bold text-white block mb-1">Location Permissions:</span>
-                <span className="text-white/60">you may disable location access; note that some features (like nearby job recommendations) may not work properly.</span>
+                <span className="font-bold text-gray-900 dark:text-white block mb-1">Location Permissions:</span>
+                <span className="text-gray-600 dark:text-gray-300">you may disable location access; note that some features (like nearby job recommendations) may not work properly.</span>
               </li>
             </ul>
           </div>
 
-          <div id="retention" className="bg-white/5 rounded-2xl p-6 md:p-8 lg:p-10 border border-white/10 scroll-mt-24 backdrop-blur-sm">
-            <h3 className="text-white text-xl md:text-2xl font-semibold mb-4">6. Data Retention</h3>
-            <p className="text-white/60 leading-relaxed">
+          <div id="retention" className="bg-slate-50 dark:bg-slate-900/60 rounded-2xl p-6 md:p-8 lg:p-10 border border-gray-200 dark:border-gray-800 shadow-sm scroll-mt-24 backdrop-blur-sm transition-colors duration-300">
+            <h3 className="text-gray-900 dark:text-white text-xl md:text-2xl font-semibold mb-4">6. Data Retention</h3>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
               We retain data as long as necessary to operate the Platform, comply with legal obligations, resolve disputes, and maintain user safety. When data is no longer required, it is securely deleted.
             </p>
           </div>
 
-          <div id="children" className="bg-white/5 rounded-2xl p-6 md:p-8 lg:p-10 border border-white/10 scroll-mt-24 backdrop-blur-sm">
-            <h3 className="text-white text-xl md:text-2xl font-semibold mb-4">7. Children’s Privacy</h3>
-            <p className="text-white/60 leading-relaxed">
+          <div id="children" className="bg-slate-50 dark:bg-slate-900/60 rounded-2xl p-6 md:p-8 lg:p-10 border border-gray-200 dark:border-gray-800 shadow-sm scroll-mt-24 backdrop-blur-sm transition-colors duration-300">
+            <h3 className="text-gray-900 dark:text-white text-xl md:text-2xl font-semibold mb-4">7. Children’s Privacy</h3>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
               Zoopol is not intended for users under the age of 18. If we discover underage usage, the account will be removed.
             </p>
           </div>
 
-          <div id="external-payments" className="bg-white/5 rounded-2xl p-6 md:p-8 lg:p-10 border border-white/10 scroll-mt-24 backdrop-blur-sm">
-            <h3 className="text-white text-xl md:text-2xl font-semibold mb-4">8. Third-Party Links & External Payments</h3>
-            <p className="text-white/60 leading-relaxed">
+          <div id="external-payments" className="bg-slate-50 dark:bg-slate-900/60 rounded-2xl p-6 md:p-8 lg:p-10 border border-gray-200 dark:border-gray-800 shadow-sm scroll-mt-24 backdrop-blur-sm transition-colors duration-300">
+            <h3 className="text-gray-900 dark:text-white text-xl md:text-2xl font-semibold mb-4">8. Third-Party Links & External Payments</h3>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
               The Platform does not process payments internally. Payments occur outside the app between users (e.g., cash, bank transfer, or third-party apps). We are not responsible for payment disputes, payment failures, or third-party policies.
             </p>
           </div>
 
-          <div id="changes" className="bg-white/5 rounded-2xl p-6 md:p-8 lg:p-10 border border-white/10 scroll-mt-24 backdrop-blur-sm">
-            <h3 className="text-white text-xl md:text-2xl font-semibold mb-4">9. Changes to This Policy</h3>
-            <p className="text-white/60 leading-relaxed">
+          <div id="changes" className="bg-slate-50 dark:bg-slate-900/60 rounded-2xl p-6 md:p-8 lg:p-10 border border-gray-200 dark:border-gray-800 shadow-sm scroll-mt-24 backdrop-blur-sm transition-colors duration-300">
+            <h3 className="text-gray-900 dark:text-white text-xl md:text-2xl font-semibold mb-4">9. Changes to This Policy</h3>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
               We may update this Privacy Policy from time to time. If changes are significant, we will notify you through in-app notifications and, if you have provided an email address, by email.
             </p>
           </div>
 
-          <div className="pt-8 mt-12 text-center text-sm text-white/50">
+          <div className="pt-8 mt-6 text-center text-sm text-gray-500 dark:text-gray-400 border-t border-gray-200 dark:border-gray-800">
             <p>
               For questions about this Privacy Policy, please contact us via in-app support.
             </p>
             <button 
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="mt-6 text-[#156BFC] hover:underline transition-colors font-medium cursor-pointer bg-transparent border-none inline-flex items-center gap-1"
+              className="mt-4 text-indigo-600 dark:text-indigo-400 hover:underline transition-colors font-medium cursor-pointer bg-transparent border-none inline-flex items-center gap-1"
             >
               Back to top ↑
             </button>

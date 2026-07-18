@@ -1,11 +1,10 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { Shield, Trash2, ArrowRight, ExternalLink } from 'lucide-react';
 
 export default function DeleteAccountPage() {
   return (
-    <div className="pt-24 pb-20 px-4 bg-white dark:bg-[#0f172a] transition-colors duration-300 min-h-[80vh]">
+    <div className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
       <Helmet>
         <title>Account Deletion Request — Zoopol</title>
         <meta name="description" content="Request permanent deletion of your Zoopol account and personal data." />
@@ -32,7 +31,7 @@ export default function DeleteAccountPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="p-8 md:p-12 rounded-3xl bg-gray-50 dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800 shadow-xl relative overflow-hidden"
+          className="p-8 md:p-12 rounded-3xl bg-slate-50 dark:bg-slate-900/60 border border-gray-200 dark:border-gray-800 shadow-xl relative overflow-hidden backdrop-blur-sm transition-colors duration-300"
         >
           <div className="absolute top-0 right-0 w-64 h-64 bg-red-500/5 blur-[80px] rounded-full pointer-events-none" />
           
@@ -52,7 +51,7 @@ export default function DeleteAccountPage() {
                   { title: "Confirm", desc: "Confirm your request to finalize the deletion." }
                 ].map((step, i) => (
                   <li key={i} className="flex gap-4">
-                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white flex items-center justify-center text-sm font-bold shadow-sm">
+                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white flex items-center justify-center text-sm font-bold shadow-sm">
                       {i + 1}
                     </span>
                     <div>
@@ -72,7 +71,7 @@ export default function DeleteAccountPage() {
                   </span>
                   Data removal details:
                 </h2>
-                <div className="p-6 rounded-2xl bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700">
+                <div className="p-6 rounded-2xl bg-white dark:bg-slate-800/50 border border-gray-200 dark:border-gray-700">
                   <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
                     When an account is deleted, the following data is permanently removed:
                   </p>
@@ -91,7 +90,7 @@ export default function DeleteAccountPage() {
                 </div>
               </div>
 
-              <div className="pt-6">
+              <div className="pt-4">
                 <a 
                   href="https://www.zoopol.com/delete-account" 
                   target="_blank"
@@ -102,7 +101,7 @@ export default function DeleteAccountPage() {
                   <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </a>
                 <p className="text-center text-xs text-gray-500 mt-4">
-                  Or email us at support@zoopol.com for manual assistance.
+                  Or email us at zoopol.india@gmail.com for manual assistance.
                 </p>
               </div>
             </div>
