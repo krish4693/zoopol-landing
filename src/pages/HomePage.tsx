@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Moon, Sun, Menu, X, CheckCircle2, Clock, Shield, Zap, Users, Star, Sparkles, Plus, MessageCircle } from 'lucide-react';
+import { Moon, Sun, Menu, X, CheckCircle2, Clock, Shield, Zap, Users, Star, Sparkles, Plus, MessageCircle, ArrowLeft } from 'lucide-react';
 import { IPhoneMockup } from '../components/IPhoneMockup';
 import { Logo } from '../components/Logo';
 
@@ -11,29 +11,17 @@ import darkHome from "../imports/WhatsApp_Image_2026-05-03_at_10.25.47_(1).jpeg"
 import darkMyJobs from "../imports/WhatsApp_Image_2026-05-03_at_10.25.47_(2).jpeg";
 import darkCategories from "../imports/WhatsApp_Image_2026-05-03_at_10.25.47_(3).jpeg";
 
+import { useTheme } from '../context/ThemeContext';
+
 export default function HomePage() {
-  const [darkMode, setDarkMode] = useState(false);
+  const { darkMode, toggleTheme: handleThemeToggle, isThemeSwitching } = useTheme();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [isThemeSwitching, setIsThemeSwitching] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
-
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [darkMode]);
-
-  const handleThemeToggle = () => {
-    setIsThemeSwitching(true);
-    setTimeout(() => {
-      setDarkMode(!darkMode);
-      setIsThemeSwitching(false);
-    }, 300);
-  };
+  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxJhGL5w1uLH36el3kbSWNdFifyY-474O6X0_FZvhct6wBnTd8JuoSCI8c8jesIj6Olvw/exec";
 
   const categories = [
     { name: 'Assembly', icon: '🔧', popular: false },
@@ -45,7 +33,6 @@ export default function HomePage() {
     { name: 'Electrician', icon: '⚡', popular: true, highlighted: true },
     { name: 'Plumber', icon: '🪠', popular: true, highlighted: true },
     { name: 'Painting', icon: '🎨', popular: false },
-
     { name: 'Repair', icon: '🔨', popular: false },
     { name: 'Yard Work', icon: '🌿', popular: false },
   ];
@@ -64,17 +51,26 @@ export default function HomePage() {
     { step: '4', title: 'Rate & Pay', description: 'Complete the job, rate the worker, and pay securely through the app' },
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Simulate a server response
-    setIsSubmitted(true);
-    setFormData({ name: '', email: '', message: '' });
+    setIsSubmitting(true);
+    setSubmitError('');
 
-    // Reset success message after 5 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-    }, 5000);
+    try {
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(formData),
+      });
+
+      setIsSubmitted(true);
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitError('Unable to send message automatically right now. Please try again or reach out on WhatsApp.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
 
@@ -318,7 +314,10 @@ export default function HomePage() {
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8 w-full max-w-[280px] xs:max-w-xs sm:max-w-none">
 
-                <motion.button
+                <motion.a
+                  href="https://play.google.com/store/apps/details?id=com.zoopol1.app&pcampaignid=web_share"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="flex items-center justify-center gap-3 bg-black text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl hover:bg-gray-900 transition-colors w-full sm:w-auto"
@@ -330,9 +329,12 @@ export default function HomePage() {
                     <div className="text-[10px] sm:text-xs">Download on the</div>
                     <div className="text-base sm:text-lg">App Store</div>
                   </div>
-                </motion.button>
+                </motion.a>
 
-                <motion.button
+                <motion.a
+                  href="https://play.google.com/store/apps/details?id=com.zoopol1.app&pcampaignid=web_share"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="flex items-center justify-center gap-3 bg-black text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl hover:bg-gray-900 transition-colors w-full sm:w-auto"
@@ -344,7 +346,7 @@ export default function HomePage() {
                     <div className="text-[10px] sm:text-xs">Get it on</div>
                     <div className="text-base sm:text-lg">Google Play</div>
                   </div>
-                </motion.button>
+                </motion.a>
               </div>
 
 
@@ -672,26 +674,25 @@ export default function HomePage() {
                   transition: { duration: 0.2 }
                 }}
                 whileTap={{ scale: 0.95 }}
-                className={`relative p-5 sm:p-6 rounded-2xl text-center cursor-pointer transition-all group ${
-                  category.highlighted
-                    ? `${
-                        darkMode
-                          ? 'bg-gradient-to-br from-slate-900 via-indigo-950/20 to-slate-950/80 border-2 border-indigo-500/70 shadow-[0_0_20px_rgba(99,102,241,0.2)] hover:shadow-[0_0_35px_rgba(99,102,241,0.45)]'
-                          : 'bg-gradient-to-br from-indigo-50/40 via-white to-purple-50/20 border-2 border-indigo-600 shadow-[0_4px_20px_rgba(99,102,241,0.12)] hover:shadow-[0_4px_25px_rgba(99,102,241,0.28)]'
-                      }`
-                    : `${
-                        darkMode
-                          ? 'bg-gradient-to-br from-gray-800 via-gray-850 to-gray-900 border border-gray-700 shadow-lg hover:shadow-2xl'
-                          : 'bg-gradient-to-br from-white via-indigo-50 to-purple-50 border border-indigo-200 shadow-lg hover:shadow-2xl'
-                      }`
-                }`}
+                className={`relative p-5 sm:p-6 rounded-2xl text-center cursor-pointer transition-all group ${category.highlighted
+                    ? `${darkMode
+                      ? 'bg-gradient-to-br from-slate-900 via-indigo-950/20 to-slate-950/80 border-2 border-indigo-500/70 shadow-[0_0_20px_rgba(99,102,241,0.2)] hover:shadow-[0_0_35px_rgba(99,102,241,0.45)]'
+                      : 'bg-gradient-to-br from-indigo-50/40 via-white to-purple-50/20 border-2 border-indigo-600 shadow-[0_4px_20px_rgba(99,102,241,0.12)] hover:shadow-[0_4px_25px_rgba(99,102,241,0.28)]'
+                    }`
+                    : `${darkMode
+                      ? 'bg-gradient-to-br from-gray-800 via-gray-850 to-gray-900 border border-gray-700 shadow-lg hover:shadow-2xl'
+                      : 'bg-gradient-to-br from-white via-indigo-50 to-purple-50 border border-indigo-200 shadow-lg hover:shadow-2xl'
+                    }`
+                  }`}
               >
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
-                  initial={{ x: '-100%' }}
-                  whileHover={{ x: '100%' }}
-                  transition={{ duration: 0.6 }}
-                />
+                <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none z-0">
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+                    initial={{ x: '-100%' }}
+                    whileHover={{ x: '100%' }}
+                    transition={{ duration: 0.6 }}
+                  />
+                </div>
 
                 {category.highlighted && (
                   <motion.div
@@ -699,7 +700,7 @@ export default function HomePage() {
                     whileInView={{ scale: 1, opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.06 + 0.3, type: 'spring' }}
-                    className="absolute -top-3 -right-3 z-10"
+                    className="absolute -top-3 -right-2 z-30 pointer-events-none"
                   >
                     <motion.div
                       animate={{
@@ -711,7 +712,7 @@ export default function HomePage() {
                         ]
                       }}
                       transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-                      className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-[10px] sm:text-xs px-2.5 py-1 rounded-full font-bold shadow-xl border border-white/20"
+                      className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-[10px] sm:text-xs px-2.5 py-1 rounded-full font-bold shadow-xl border border-white/20 whitespace-nowrap"
                     >
                       ✨ Popular
                     </motion.div>
@@ -727,11 +728,10 @@ export default function HomePage() {
                   {category.icon}
                 </motion.div>
 
-                <p className={`text-sm sm:text-base font-bold relative z-10 transition-all whitespace-normal leading-tight px-1 ${
-                  category.highlighted 
-                    ? 'bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent group-hover:scale-105' 
+                <p className={`text-sm sm:text-base font-bold relative z-10 transition-all whitespace-normal leading-tight px-1 ${category.highlighted
+                    ? 'bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent group-hover:scale-105'
                     : (darkMode ? 'text-gray-200 group-hover:text-indigo-400' : 'text-gray-800 group-hover:text-indigo-600')
-                }`}>
+                  }`}>
                   {category.name}
                 </p>
 
@@ -907,17 +907,37 @@ export default function HomePage() {
                 <h3 className={`text-2xl font-bold mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                   Message Sent Successfully!
                 </h3>
-                <p className={`${darkMode ? 'text-gray-400' : 'text-gray-600'} max-w-sm`}>
+                <p className={`${darkMode ? 'text-gray-400' : 'text-gray-600'} max-w-sm mb-8`}>
                   Thanks for reaching out. We've received your message and will get back to you as soon as possible.
                 </p>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => setIsSubmitted(false)}
-                  className="mt-8 px-6 py-2 rounded-xl bg-indigo-600 text-white font-medium hover:bg-indigo-700 transition-colors"
-                >
-                  Send Another Message
-                </motion.button>
+
+                <div className="flex flex-col sm:flex-row items-center gap-4">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => setIsSubmitted(false)}
+                    className="flex items-center gap-2 px-6 py-3 rounded-xl bg-indigo-600 text-white font-medium hover:bg-indigo-700 transition-colors shadow-md"
+                  >
+                    <ArrowLeft className="w-4 h-4" />
+                    <span>Back to Form</span>
+                  </motion.button>
+
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => {
+                      setIsSubmitted(false);
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                    className={`flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-colors border ${
+                      darkMode
+                        ? 'border-gray-700 text-gray-300 hover:bg-gray-800 hover:text-white'
+                        : 'border-gray-200 text-gray-700 hover:bg-gray-100 hover:text-gray-900'
+                    }`}
+                  >
+                    <span>Back to Top ↑</span>
+                  </motion.button>
+                </div>
               </motion.div>
             ) : (
               <div className="space-y-6 relative z-10">
@@ -973,15 +993,30 @@ export default function HomePage() {
                   />
                 </motion.div>
 
+                {submitError && (
+                  <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-500 text-sm text-center">
+                    {submitError}{' '}
+                    <a
+                      href="https://wa.me/917560969629"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline font-semibold hover:text-red-400"
+                    >
+                      Chat on WhatsApp
+                    </a>
+                  </div>
+                )}
+
                 <motion.button
-                  whileHover={{ scale: 1.02, y: -2 }}
-                  whileTap={{ scale: 0.98 }}
+                  whileHover={{ scale: isSubmitting ? 1 : 1.02, y: isSubmitting ? 0 : -2 }}
+                  whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
                   initial={{ y: 20, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.5 }}
                   type="submit"
-                  className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-4 rounded-xl hover:from-indigo-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl relative overflow-hidden group"
+                  disabled={isSubmitting}
+                  className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-4 rounded-xl hover:from-indigo-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl relative overflow-hidden group disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   <motion.div
                     className="absolute inset-0 bg-white/20"
@@ -990,17 +1025,29 @@ export default function HomePage() {
                     style={{ width: '50%' }}
                   />
                   <span className="relative z-10 flex items-center justify-center gap-2">
-                    Send Message
-                    <motion.svg
-                      className="w-5 h-5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      animate={{ x: [0, 5, 0] }}
-                      transition={{ duration: 1.5, repeat: Infinity }}
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </motion.svg>
+                    {isSubmitting ? (
+                      <>
+                        <svg className="animate-spin -ml-1 mr-2 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                        </svg>
+                        Sending Message...
+                      </>
+                    ) : (
+                      <>
+                        Send Message
+                        <motion.svg
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          animate={{ x: [0, 5, 0] }}
+                          transition={{ duration: 1.5, repeat: Infinity }}
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </motion.svg>
+                      </>
+                    )}
                   </span>
                 </motion.button>
               </div>
@@ -1015,7 +1062,7 @@ export default function HomePage() {
 
       {/* WhatsApp Chat Button */}
       <motion.a
-        href="https://wa.me/917510339308"
+        href="https://wa.me/917560969629"
         target="_blank"
         rel="noopener noreferrer"
         initial={{ scale: 0, opacity: 0 }}

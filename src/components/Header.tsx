@@ -1,39 +1,96 @@
-import { Link, useLocation } from 'react-router-dom';
-import { Button } from './ui/button';
-import logoImage from 'figma:asset/517df0d5670810621a7e0624844181007d0f402d.png';
+import { Link } from 'react-router-dom';
+import { ArrowLeft, Moon, Sun, Sparkles } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Logo } from './Logo';
+import { useTheme } from '../context/ThemeContext';
 
 export default function Header() {
-  const location = useLocation();
-  const isHomePage = location.pathname === '/';
+  const { darkMode, toggleTheme, isThemeSwitching } = useTheme();
 
   return (
-    <div className="sticky top-4 z-50 px-4 sm:px-6 lg:px-8 mb-8 md:mb-16">
-      <header className="flex justify-between items-center py-3 px-6 md:px-8 bg-[#0A0F1C]/70 backdrop-blur-xl border border-white/10 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.5)] max-w-7xl mx-auto transition-all duration-300 hover:border-white/20 hover:bg-[#0A0F1C]/80">
-        <div className="flex items-center shrink-0">
-          <Link to="/" className="flex items-center gap-2">
-            <img src={logoImage} alt="Zoopol" className="h-6 md:h-8" />
+    <header className={`sticky top-0 z-50 w-full transition-colors duration-300 ${darkMode ? 'bg-[#1e293b]/95 border-gray-800' : 'bg-white/95 border-gray-200'} backdrop-blur-md border-b`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          <Link to="/" className="flex items-center gap-2 hover:opacity-90 transition-opacity">
+            <Logo darkMode={darkMode} className="h-8 w-auto" />
           </Link>
-        </div>
 
-        {isHomePage && (
-          <nav className="hidden md:flex items-center gap-6 lg:gap-8 px-6 lg:px-8 border-l border-r border-white/10 mx-4 lg:mx-6">
-            <a href="#home" className="text-sm text-white/70 hover:text-white font-medium transition-colors whitespace-nowrap">Find Work</a>
-            <a href="#features" className="text-sm text-white/70 hover:text-white font-medium transition-colors whitespace-nowrap">Post Job</a>
-            <a href="#how-it-works" className="text-white/90 hover:text-[#156BFC] transition-colors">How it works</a>
-          <Link to="/about" className="text-sm text-white/70 hover:text-white font-medium transition-colors whitespace-nowrap">About Us</Link>
-            <a href="#faq" className="text-sm text-white/70 hover:text-white font-medium transition-colors whitespace-nowrap">Benefits</a>
-          </nav>
-        )}
+          <div className="flex items-center gap-3 sm:gap-4">
+            <Link
+              to="/"
+              className={`inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all shadow-sm ${
+                darkMode
+                  ? 'bg-slate-800 hover:bg-slate-700 text-gray-200 hover:text-white border border-slate-700'
+                  : 'bg-gray-100 hover:bg-gray-200 text-gray-700 hover:text-gray-900 border border-gray-200'
+              }`}
+            >
+              <ArrowLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              <span>Back to Home</span>
+            </Link>
 
-        <div className="flex items-center gap-2 md:gap-4 shrink-0">
-          <Button variant="ghost" className="hidden sm:flex text-white/80 hover:text-white hover:bg-white/10 text-sm font-medium rounded-full transition-colors">
-            Log In
-          </Button>
-          <Button className="rounded-full px-5 md:px-7 py-2 bg-[#00E5FF] hover:bg-[#00E5FF]/90 text-black font-bold text-sm shadow-[0_0_20px_rgba(0,229,255,0.2)] transition-all hover:shadow-[0_0_30px_rgba(0,229,255,0.4)] hover:-translate-y-0.5">
-            Sign Up
-          </Button>
+            {/* Stylish Theme Toggle */}
+            <motion.button
+              onClick={toggleTheme}
+              className={`relative w-14 h-7 rounded-full p-0.5 transition-colors ${darkMode ? 'bg-indigo-900' : 'bg-indigo-200'}`}
+              whileTap={{ scale: 0.95 }}
+              aria-label="Toggle Theme"
+            >
+              <motion.div
+                className={`w-6 h-6 rounded-full shadow-lg flex items-center justify-center ${darkMode ? 'bg-gray-900' : 'bg-white'}`}
+                animate={{ x: darkMode ? 26 : 0 }}
+                transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+              >
+                <AnimatePresence mode="wait">
+                  {darkMode ? (
+                    <motion.div
+                      key="moon"
+                      initial={{ rotate: -180, opacity: 0 }}
+                      animate={{ rotate: 0, opacity: 1 }}
+                      exit={{ rotate: 180, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <Moon className="w-3.5 h-3.5 text-indigo-400" />
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="sun"
+                      initial={{ rotate: 180, opacity: 0 }}
+                      animate={{ rotate: 0, opacity: 1 }}
+                      exit={{ rotate: -180, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <Sun className="w-3.5 h-3.5 text-amber-500" />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+
+              <AnimatePresence>
+                {isThemeSwitching && (
+                  <>
+                    {[...Array(6)].map((_, i) => (
+                      <motion.div
+                        key={i}
+                        className="absolute top-1/2 left-1/2"
+                        initial={{ scale: 0, x: 0, y: 0 }}
+                        animate={{
+                          scale: [0, 1, 0],
+                          x: Math.cos((i * Math.PI) / 3) * 30,
+                          y: Math.sin((i * Math.PI) / 3) * 30,
+                        }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.5 }}
+                      >
+                        <Sparkles className={`w-2.5 h-2.5 ${darkMode ? 'text-yellow-400' : 'text-indigo-500'}`} />
+                      </motion.div>
+                    ))}
+                  </>
+                )}
+              </AnimatePresence>
+            </motion.button>
+          </div>
         </div>
-      </header>
-    </div>
+      </div>
+    </header>
   );
 }

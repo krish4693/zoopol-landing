@@ -88,7 +88,9 @@ export function Footer() {
               <motion.a
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                href="#"
+                href="https://play.google.com/store/apps/details?id=com.zoopol1.app&pcampaignid=web_share"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 bg-black text-white px-4 py-2 rounded-lg text-sm hover:bg-gray-900 transition-colors justify-center md:justify-start"
               >
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
@@ -99,7 +101,9 @@ export function Footer() {
               <motion.a
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                href="#"
+                href="https://play.google.com/store/apps/details?id=com.zoopol1.app&pcampaignid=web_share"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 bg-black text-white px-4 py-2 rounded-lg text-sm hover:bg-gray-900 transition-colors justify-center md:justify-start"
               >
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
